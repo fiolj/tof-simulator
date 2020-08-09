@@ -1,0 +1,56 @@
+\documentclass[12pt,spanish]{article}
+\usepackage{ibclases}
+\begin{document}
+
+\section{Tiempo de Vuelo}
+\label{S:tiempo-de-vuelo}
+
+Las ecuaciones de movimiento para cada tramo del tiempo de vuelo son
+\begin{align*}
+  v &= v_{0} + a t \\
+  \Delta s &= v_{0} t + a t^{2}/2
+&&
+a = q E /m 
+\end{align*}
+
+Definiendo las cantidades adimensionales
+\begin{align*}
+  u \equiv \sqrt{m} v && f\equiv a/m = qE  && T \equiv t/\sqrt{m}
+\end{align*}
+y resolviendo el tiempo obtenemos
+\begin{equation*}
+  T = \left[\sqrt{u_{0}^{2} + 2 \Delta s\, f} - u_{0}\right]/f
+\end{equation*}
+
+Los tiempos de vuelo para cada tramo ser\'{a}n ($t_{j} = \sqrt{m}\,T_{j}$):
+\begin{align*}
+  T_{s} &=  \left[\sqrt{u_{0}^{2} + 2 (s_{0} - x_{0})\, q E_{s}} - u_{0}\right]/(q E_{s}) & u_{s} &= u_{0} + q \,E_{s} T_{s} \\
+  T_{d} &=  \left[\sqrt{u_{s}^{2} + 2\, q\,d E_{d}} - u_{s}\right]/(q E_{d}) & u_{d} &= u_{s} + q\, E_{d} \,T_{d} \\
+  T_{D} &=  D/u_{d}
+\end{align*}
+
+Poniendo todo junto queda
+\begin{align}
+  \label{Q:ec-final}
+  &  \sqrt{\frac{m}{q}}\frac{\sqrt{2}}{E_{d} \sqrt{\left(- E_{d} d + E_{s} s\right)}}\times \\ &
+ \left(\frac{D E_{d}}{2} - E_{d} d + E_{d} \sqrt{\left(- E_{d} d + E_{s} s\right)} \sqrt{\frac{s}{E_{s}}} + E_{s} s - E_{s} \sqrt{\left(- E_{d} d + E_{s} s\right)} \sqrt{\frac{s}{E_{s}}}\right)
+\end{align}
+\section{Condiciones iniciales}
+\label{S:cond-inic}
+
+\begin{itemize}
+\item La distribuci\'{o}n de velocidades inicial en la direcci\'{o}n de aceleraci\'{o}n est\'{a} dada por
+  la distribuci\'{o}n de Maxwell-Boltzmann
+  \begin{equation*}
+    P(u_{0}) = \frac{1}{\mathcal{Z}}\, e^{-u_{0}^{2}/2k_{B}T}
+  \end{equation*}
+  Utilizamos una distribuci\'{o}n \emph{normal} con $\sigma = \sqrt{k_{B} T}$
+
+\item   La distribuci\'{o}n de posici\'{o}n puede elegirse uniforme de ancho $\delta s$, o \emph{normal}
+  con $\sigma= \delta s/2$.
+
+\item   La distribuci\'{o}n de tiempos iniciales puede elegirse uniforme de ancho $\delta t$, o
+  \emph{normal} con $\sigma= \delta t/2$. El valor default es $\delta t= 8~\mathrm{ns}$.
+
+\end{itemize}
+\end{document}

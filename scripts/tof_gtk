@@ -1,0 +1,32 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+from tofsim import tof_gtk
+import argparse
+
+if __name__ == '__main__':
+  from tofsim.version import VERSION
+
+  parser = argparse.ArgumentParser(
+      description=u'"Simulación de la señal obtenida en el tiempo de vuelo"')
+
+  parser.add_argument('-V', '--version', action='version',
+                      version='%(prog)s version {}'.format(VERSION))
+  parser.add_argument(
+      "-c",
+      "--conf",
+      default=None,
+      metavar='File',
+      help="Configuration file to load")
+  parser.add_argument(
+      "-t",
+      "--help-teoria",
+      default=False,
+      action='store_true',
+      help="Read TOF theory")
+
+  args = parser.parse_args()
+
+  TOF_w1 = tof_gtk.tof_gtk(args.conf)
+  if args.help_teoria: TOF_w1.on_teoria_activate(None)
+
+  TOF_w1.main()

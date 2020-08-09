@@ -1,0 +1,120 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Juan Fiol
+# This file is distributed under the same license as the TOF-simulator
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TOF-simulator version: 2.9\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-08-02 14:12-0300\n"
+"PO-Revision-Date: 2020-08-03 15:56-0300\n"
+"Last-Translator: Juan Fiol <juanfiol@gmail.com>\n"
+"Language-Team: TOF <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/teoria.rst:3
+msgid "Implementación de cálculo de tiempo de vuelo"
+msgstr "Implementation of time-of-flight calculations"
+
+#: ../../source/teoria.rst:13
+msgid "Ecuaciones de movimiento"
+msgstr "Equations of motion"
+
+#: ../../source/teoria.rst:15
+msgid "Las ecuaciones de movimiento para cada tramo del tiempo de vuelo son"
+msgstr "The equations of motion for each stage of the spectrometer are:"
+
+#: ../../source/teoria.rst:17
+msgid ""
+"v &= v_{0} + a t \\\\ \\Delta s &= v_{0} t + a t^{2}/2 \\qquad (a = q E "
+"/m )"
+msgstr ""
+
+#: ../../source/teoria.rst:21
+msgid "Definiendo las cantidades adimensionales"
+msgstr "By defining the dimensionless magnitudes"
+
+#: ../../source/teoria.rst:23
+msgid ""
+"u &\\equiv \\sqrt{m} v \\\\ f &\\equiv a/m = qE  \\,, \\\\ T &\\equiv "
+"t/\\sqrt{m}"
+msgstr ""
+
+#: ../../source/teoria.rst:28
+msgid "y resolviendo el tiempo obtenemos"
+msgstr "and solving for time, we get"
+
+#: ../../source/teoria.rst:30
+msgid "T = \\left[\\sqrt{u_{0}^{2} + 2 \\Delta s\\, f} - u_{0}\\right]/f"
+msgstr ""
+
+#: ../../source/teoria.rst:33
+msgid ""
+"Los tiempos de vuelo para cada tramo serán (:math:`t_{j} = "
+"\\sqrt{m}\\,T_{j}`):"
+msgstr ""
+"Time of flight for each stage is given by (:math:`t_{j} = "
+"\\sqrt{m}\\,T_{j}`):"
+
+#: ../../source/teoria.rst:35
+msgid ""
+"\\begin{align*}    T_{s} &=  \\left[\\sqrt{u_{0}^{2} + 2 (s_{0} - "
+"x_{0})\\, q E_{s}} - u_{0}\\right]/(q E_{s}) & u_{s} &= u_{0} + q "
+"\\,E_{s} T_{s} \\\\    T_{d} &=  \\left[\\sqrt{u_{s}^{2} + 2\\, q\\,d "
+"E_{d}} - u_{s}\\right]/(q E_{d}) & u_{d} &= u_{s} + q\\, E_{d} \\,T_{d} "
+"\\\\    T_{D} &=  D/u_{d} \\end{align*}"
+msgstr ""
+
+#: ../../source/teoria.rst:47
+msgid "Condiciones iniciales"
+msgstr "Initial conditions"
+
+#: ../../source/teoria.rst:49
+msgid ""
+"La distribución de velocidades inicial en la dirección de aceleración "
+"está dada por la distribución de Maxwell-Boltzmann"
+msgstr ""
+"Initial velocities are given by the Maxwell-Boltzmann distribution in the"
+" direction of the TOF"
+
+#: ../../source/teoria.rst:51
+msgid "P(u_{0}) = \\frac{1}{\\mathcal{Z}}\\, e^{-u_{0}^{2}/2k_{B}T}"
+msgstr ""
+
+#: ../../source/teoria.rst:53
+msgid "con ancho :math:`\\sigma = \\sqrt{k_{B} T}`"
+msgstr "with width :math:`\\sigma = \\sqrt{k_{B} T}`"
+
+#: ../../source/teoria.rst:55
+msgid ""
+"La distribución de posición puede elegirse uniforme de ancho "
+":math:`\\delta s`, o *normal* con :math:`\\sigma= \\delta s/2`."
+msgstr ""
+"The spatial distribution may be chosen either uniform with width "
+":math:`\\delta s`, or *normal* with :math:`\\sigma= \\delta s/2`."
+
+#: ../../source/teoria.rst:57
+msgid ""
+"La distribución de tiempos iniciales puede elegirse uniforme de ancho "
+":math:`\\delta t`, o *normal* con :math:`\\sigma= \\delta t/2`. El valor "
+"default es :math:`\\delta t= 8~\\mathrm{ns}`."
+msgstr ""
+"The time distribution also may be chosen either uniform of width "
+":math:`\\delta t`, or *normal* with :math:`\\sigma= \\delta t/2`. The "
+"default value is :math:`\\delta t= 8~\\mathrm{ns}`."
+
+#~ msgid ""
+#~ "Utilizamos una distribución *normal* con "
+#~ ":math:`\\sigma = \\sqrt{k_{B} T}`"
+#~ msgstr ""
+#~ "The velocity distribution is *normal* "
+#~ "with width :math:`\\\\sigma = \\sqrt{k_{B} "
+#~ "T}`"
+

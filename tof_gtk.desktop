@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=TOF simulator
+Name[es]=Simulador de TOF
+Comment=Time of Flight simulator
+Comment[es]=Simulador de tiempo de vuelo
+Exec=tof_gtk
+Icon=applications-science
+Type=Application
+Categories=GNOME;GTK;Science;Education;
+StartupNotify=true
+
+

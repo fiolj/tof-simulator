@@ -1,0 +1,248 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Juan Fiol
+# This file is distributed under the same license as the TOF-simulator
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TOF-simulator version: 2.9\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-08-02 10:20-0300\n"
+"PO-Revision-Date: 2020-08-02 13:05-0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/interactivo.rst:3
+msgid "Programa interactivo"
+msgstr "Graphical interface"
+
+#: ../../source/interactivo.rst:5
+msgid ""
+"Para iniciar el programa se puede correr desde una línea de comandos con "
+"la línea::"
+msgstr "Start the program from a command line with either:"
+
+#: ../../source/interactivo.rst:9
+msgid "o, como::"
+msgstr "or::"
+
+#: ../../source/interactivo.rst:14
+msgid ""
+"El programa interactivo **tof_gtk** trata de ser de uso intuitivamente "
+"obvio. Al iniciarse, uno se encuentra con una ventana similar a la "
+"siguiente:"
+msgstr ""
+"The graphical interface is intended to be intuitively obvious.\n"
+"At startup you will find a window similar to the following:"
+
+#: ../../source/interactivo.rst:22
+msgid ""
+"donde ya hemos definido las masas para Kriptón. El botón *Execute* "
+"realiza el gráfico de tiempo de vuelos para las masas dadas. Pruébelo "
+"ahora!!"
+msgstr ""
+"Where, in this case, all isotopes of Kripton are defined.\n"
+"The button \"Execute\" produces the time-of-flight signal for the included masses."
+
+#: ../../source/interactivo.rst:25
+msgid "Selección de masas"
+msgstr "Mass selection"
+
+#: ../../source/interactivo.rst:27
+msgid "Las masas pueden seleccionarse con el *mouse*"
+msgstr "Each mass may be selected with the *mouse*"
+
+#: ../../source/interactivo.rst:28
+msgid ""
+"Una vez seleccionadas pueden removerse con el botón *Remove Selected* en "
+"la parte inferior izquierda."
+msgstr "Once selected, they may be removed by using the button *Remove Selected* in the bottom left corner"
+
+#: ../../source/interactivo.rst:29
+msgid "La manera más simple de agregar nuevas masas es:"
+msgstr "The simplest form to add new substances is:"
+
+#: ../../source/interactivo.rst:31
+msgid ""
+"Para agregar masas, la manera más simple es agregar la lista de "
+"sustancias o fragmentos en el casillero debajo del botón *Add Substances*"
+msgstr "Add substances or elements in the box below the *Add Substances* button"
+
+#: ../../source/interactivo.rst:33
+msgid "Las sustancias (una o más, separadas por comas) se escriben en la forma:"
+msgstr "The notation for (one or more) substances is:"
+
+#: ../../source/interactivo.rst:35
+msgid "Kr, Al, Au   (para elementos simples)"
+msgstr "Kr, Al, Au (for elements)"
+
+#: ../../source/interactivo.rst:36
+msgid ""
+"N2, O2, H2O, CO2, C7H8 (para moléculas, en este caso :math:`N_2, O_2, "
+"CO_2, C_7H_8`)"
+msgstr "N2, O2, H2O, CO2, C7H8 (molecules, in this case :math:`N_2, O_2, CO_2, C_7H_8`)"
+
+#: ../../source/interactivo.rst:38
+msgid ""
+"Luego, se debe apretar el botón *Add Substances* (o utilizar el shortcut "
+"*ALT s*)"
+msgstr "Then, press the *Add Substances* button (or the shortcut key *Alt s*)"
+
+#: ../../source/interactivo.rst:40
+msgid ""
+"El casillero *Find isotopes* (seleccionado por *default*) permite buscar "
+"todas las combinaciones de isótopos de una dada sustancia con un "
+"probabilidad apreciable (configurable, ver :ref:`threshold-isotope`)"
+msgstr "The box *Find isotopes* (enabled by default) allows to include all isotopes for all atoms, and all combinations of isotopes for molecule. Only isotopic composition with non-negligible abundance will be included (value configurable by :ref:`threshold-isotope`) "
+
+#: ../../source/interactivo.rst:42
+msgid ""
+"Este procedimiento da todos los isótopos de una dada sustancia y sus "
+"abundancias relativas, según la base de datos de NIST"
+msgstr "In this way, all isotopes of a given substance will be included with the correct relative abundances."
+
+#: ../../source/interactivo.rst:44
+msgid ""
+"La convención para el *label* es, una lista de los isótopos separada por "
+"un guión, donde cada isótopo tiene la forma: Numero de Masa + Símbolo + "
+"Número de átomos. Por ejemplo:"
+msgstr "Convention for *label* is: a list of isotopes, separated by a dash. Each isotope has the form: Mass number + Symbol + Number of atoms. For instance,"
+
+#: ../../source/interactivo.rst:48
+msgid "Para el isótopo de agua común (:math:`H_2O`) tendremos: **1H2-16O1**."
+msgstr "For common water isotope (:math:`H_2O`) we will have: **1H2-16O1**."
+
+#: ../../source/interactivo.rst:50
+msgid ""
+"Para agua pesada, donde el átomo de oxígeno es reemplazado por oxígeno-18"
+" (:math:`^{18}O`) será: **1H2-18O1**"
+msgstr "For heavy water, with oxygen-18 (:math:`^{18}O`) we will have: **1H2-18O1**"
+
+#: ../../source/interactivo.rst:53
+msgid "También se pueden agregar masas en forma manual. Para ello hay que:"
+msgstr "Also, substances may be added manually in the table, by:"
+
+#: ../../source/interactivo.rst:55
+msgid "Agregar filas (botón *Add*)"
+msgstr "Add rows (clicking the *Add* button)"
+
+#: ../../source/interactivo.rst:57
+msgid "Llenar los tres casilleros de la fila:"
+msgstr "Fill in the three boxes in the row"
+
+#: ../../source/interactivo.rst:59
+msgid "Especie: es un label de identificación"
+msgstr "Especie: Label of identification"
+
+#: ../../source/interactivo.rst:61
+msgid ""
+"Masa: La masa de la sustancia en UMA. Esta cantidad determina la posición"
+" del pico y su ancho."
+msgstr "Masa: The mass of the substance in AMU. It will determine the position and width of the peak"
+
+#: ../../source/interactivo.rst:63
+msgid ""
+"Población: Porcentaje de abundancia de la sustancia. Esta cantidad "
+"determina la altura del pico."
+msgstr "Población: Abundance of the substance. Determines the heigth of the simulated peak."
+
+#: ../../source/interactivo.rst:66
+msgid "Configuración de parámetros"
+msgstr "Parameters configuration"
+
+#: ../../source/interactivo.rst:68
+msgid ""
+"El casillero *Automatic Update* permite ir viendo las modificaciones a "
+"los gráficos en tiempo real cuando se modifica alguna tensión"
+msgstr "The box *Automatic Update* allows to see modifications on real time when parameters are changed."
+
+#: ../../source/interactivo.rst:71
+msgid ""
+"El botón *Properties* (*ALT p*) abre una segunda ventana donde se pueden "
+"configurar parámetros del TOF y algunas de las condiciones de trabajo."
+msgstr "The button *Properties* (*Alt p*) opens a window with options for construction and operation parameters"
+
+#: ../../source/interactivo.rst:77
+msgid "Ventana de configuración"
+msgstr "Configuration window"
+
+#: ../../source/interactivo.rst:79
+msgid "La ventana de propiedades tiene la forma:"
+msgstr "The properties window is shown in the following figure"
+
+#: ../../source/interactivo.rst:88
+msgid "En esta ventana se pueden configurar los parámetros del TOF:"
+msgstr "Here, all construction and operation parameters of the TOF may be configured:"
+
+#: ../../source/interactivo.rst:91
+msgid "Dimensiones del TOF"
+msgstr "TOF dimensions"
+
+#: ../../source/interactivo.rst:93
+msgid "Distancia de extracción :math:`s`"
+msgstr "Extraction distance"
+
+#: ../../source/interactivo.rst:94
+msgid "Distancia de aceleración :math:`d`"
+msgstr "Lenght of the acceleration zone :math:`d`"
+
+#: ../../source/interactivo.rst:95
+msgid "Distancia de vuelo libre :math:`D`"
+msgstr "Free flight distance :math:`D`"
+
+#: ../../source/interactivo.rst:98
+msgid "Tensiones aplicadas"
+msgstr "Applied voltages"
+
+#: ../../source/interactivo.rst:100
+msgid "Voltaje de extracción :math:`V_s`"
+msgstr "Extraction voltage :math:`V_s`"
+
+#: ../../source/interactivo.rst:101
+msgid "Voltaje de aceleración :math:`V_d`"
+msgstr "Acceleration voltage :math:`V_d`"
+
+#: ../../source/interactivo.rst:102
+msgid "Temperatura de trabajo :math:`T`"
+msgstr "Working temperature :math:`T`"
+
+#: ../../source/interactivo.rst:105
+msgid "Láser"
+msgstr "Laser"
+
+#: ../../source/interactivo.rst:106
+msgid "Duración del láser y forma temporal del pulso (normal o uniforme)"
+msgstr "Pulse duration and temporal dependence (normal or uniform)"
+
+#: ../../source/interactivo.rst:107
+msgid "Radio del *spot* del láser y perfil del haz (normal o uniforme)"
+msgstr "Ionization spot radius and spatial profile (normal or uniform)"
+
+#: ../../source/interactivo.rst:110
+msgid "Gráficos"
+msgstr "Plotting"
+
+#: ../../source/interactivo.rst:112
+msgid "Señal negativa (simulando la señal del osciloscopio)"
+msgstr "Negative signal (as shown in osciloscopes)"
+
+#: ../../source/interactivo.rst:113
+msgid "Agregar una grilla para guía visual"
+msgstr "Add a grid"
+
+#: ../../source/interactivo.rst:119
+msgid "Umbral de Isótopos"
+msgstr "Isotope threshold"
+
+#: ../../source/interactivo.rst:121
+msgid ""
+"El casillero *Threshold isotope* permite definir cuál es la abundancia "
+"mínima (porcentual) del isótopo de una dad sustancia a considerar."
+msgstr "The box *Threshold isotope* allows to set the minimal abundance (percentage) such that the substance is included"
+

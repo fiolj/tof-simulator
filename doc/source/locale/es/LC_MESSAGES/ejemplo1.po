@@ -1,0 +1,98 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Juan Fiol
+# This file is distributed under the same license as the TOF-simulator
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TOF-simulator version: 2.9\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-08-02 10:20-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/ejemplo1.rst:3
+msgid "Ejemplos de uso del módulo tofsim"
+msgstr ""
+
+#: ../../source/ejemplo1.rst:7
+msgid "Iniciar la sesión"
+msgstr ""
+
+#: ../../source/ejemplo1.rst:9
+msgid ""
+"Para iniciar la sesión, importamos el paquete o sólo el objeto ``ToF`` "
+"Por ejemplo, en la forma:"
+msgstr ""
+
+#: ../../source/ejemplo1.rst:17
+msgid "o, simplemente:"
+msgstr ""
+
+#: ../../source/ejemplo1.rst:24
+msgid ""
+"El objeto del tipo ``ToF`` contiene toda la información sobre los "
+"parámetros de construcción y de funcionamiento"
+msgstr ""
+
+#: ../../source/ejemplo1.rst:57
+msgid "Cálculos"
+msgstr ""
+
+#: ../../source/ejemplo1.rst:59
+msgid ""
+"Agregamos algunas sustancias a las cuales le vamos a simular las señales "
+"de tiempo de vuelo"
+msgstr ""
+
+#: ../../source/ejemplo1.rst:88
+msgid ""
+"El método ``ToF.signal()`` devuelve la simulación de la señal que se "
+"observaría en el TOF."
+msgstr ""
+
+#: ../../source/ejemplo1.rst:105
+msgid "El resultado es un diccionario donde cada elemento es un array de datos:"
+msgstr ""
+
+#: ../../source/ejemplo1.rst:107
+msgid "s[‘time’] tiene el eje x, con la ventana de tiempo"
+msgstr ""
+
+#: ../../source/ejemplo1.rst:109
+msgid "s[‘signal’] tiene los valores de la suma de todas las especies."
+msgstr ""
+
+#: ../../source/ejemplo1.rst:111
+msgid ""
+"los restantes elementos ``s[sustancia]`` tienen los valores de señal "
+"producida por cada sustancia."
+msgstr ""
+
+#: ../../source/ejemplo1.rst:125
+msgid ""
+"Notar que en realidad no es necesario guardar el valor de ``s`` en este "
+"caso ya que queda guardado en el objeto ``T.times``"
+msgstr ""
+
+#: ../../source/ejemplo1.rst:143
+msgid "Gráficos"
+msgstr ""
+
+#: ../../source/ejemplo1.rst:145
+msgid "La manera más simple de graficar es utilizando el método ``make_plot``."
+msgstr ""
+
+#: ../../source/ejemplo1.rst:156
+msgid ""
+"Este método ofrece algo de flexibilidad, pero dado que los datos se "
+"guardan como numpy arrays, se pueden graficar separadamente"
+msgstr ""
+
