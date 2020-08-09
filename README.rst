@@ -6,6 +6,21 @@ tof-simulator is a package to simulate the spectra from a Time-of-Flight mass sp
 
 It has capabilities to analyze substances from convenient names and may be used as a python module in a script or interactively as a Graphical program.
 
+****
+Demo
+****
+
+- Start the GUI and calculate the spectra
+
+  .. image:: doc/images/demo1.gif
+
+
+- Modify the TOF parameters and recalculate
+
+  .. image:: doc/images/demo2.gif
+
+
+
 ************
 Installation
 ************
@@ -21,6 +36,7 @@ or (usually preferred) for the current user:
 ::
 
    pip install --user tof-simulator-X.Y.tar.gz
+
 
 ************
 Dependencies
