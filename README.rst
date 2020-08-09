@@ -66,4 +66,4 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 Documentation
 *************
 
-Further information on installation, dependencies and use is in the `documentation <fiolj.github.io/tof-simulator/>`_.
+Further information on installation, dependencies and use is in the `documentation <https://fiolj.github.io/tof-simulator/>`_.
