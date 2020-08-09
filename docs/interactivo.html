@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Graphical interface &mdash; TOF-simulator 2.99 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Example of use of tofsim" href="ejemplo1.html" />
+    <link rel="prev" title="Implementation of time-of-flight calculations" href="teoria.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> TOF-simulator
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                version: 2.99
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="teoria.html">Implementation of time-of-flight calculations</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Graphical interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#seleccion-de-masas">Mass selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuracion-de-parametros">Parameters configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ventana-de-configuracion">Configuration window</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dimensiones-del-tof">TOF dimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tensiones-aplicadas">Applied voltages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#laser">Laser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#graficos">Plotting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#umbral-de-isotopos">Isotope threshold</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ejemplo1.html">Example of use of tofsim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tofsim.html">Package API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TOF-simulator</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Graphical interface</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/interactivo.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="programa-interactivo">
+<h1>Graphical interface<a class="headerlink" href="#programa-interactivo" title="Permalink to this headline">¶</a></h1>
+<p>Start the program from a command line with either:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$&gt; tof_gtk
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$&gt; tof_gtk.py
+</pre></div>
+</div>
+<p>The graphical interface is intended to be intuitively obvious.
+At startup you will find a window similar to the following:</p>
+<a class="reference internal image-reference" href="_images/tof_inter_inic.png"><img alt="Ventana inicial del tof" class="align-center" src="_images/tof_inter_inic.png" style="width: 90%;" /></a>
+<p>Where, in this case, all isotopes of Kripton are defined.
+The button “Execute” produces the time-of-flight signal for the included masses.</p>
+<div class="section" id="seleccion-de-masas">
+<h2>Mass selection<a class="headerlink" href="#seleccion-de-masas" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Each mass may be selected with the <em>mouse</em></p></li>
+<li><p>Once selected, they may be removed by using the button <em>Remove Selected</em> in the bottom left corner</p></li>
+<li><p>The simplest form to add new substances is:</p>
+<ul>
+<li><p>Add substances or elements in the box below the <em>Add Substances</em> button</p></li>
+<li><p>The notation for (one or more) substances is:</p>
+<ul>
+<li><p>Kr, Al, Au (for elements)</p></li>
+<li><p>N2, O2, H2O, CO2, C7H8 (molecules, in this case <span class="math notranslate nohighlight">\(N_2, O_2, CO_2, C_7H_8\)</span>)</p></li>
+</ul>
+</li>
+<li><p>Then, press the <em>Add Substances</em> button (or the shortcut key <em>Alt s</em>)</p></li>
+<li><p>The box <em>Find isotopes</em> (enabled by default) allows to include all isotopes for all atoms, and all combinations of isotopes for molecule. Only isotopic composition with non-negligible abundance will be included (value configurable by <a class="reference internal" href="#threshold-isotope"><span class="std std-ref">Isotope threshold</span></a>)</p></li>
+<li><p>In this way, all isotopes of a given substance will be included with the correct relative abundances.</p></li>
+<li><p>Convention for <em>label</em> is: a list of isotopes, separated by a dash. Each isotope has the form: Mass number + Symbol + Number of atoms. For instance,</p>
+<ul>
+<li><p>For common water isotope (<span class="math notranslate nohighlight">\(H_2O\)</span>) we will have: <strong>1H2-16O1</strong>.</p></li>
+<li><p>For heavy water, with oxygen-18 (<span class="math notranslate nohighlight">\(^{18}O\)</span>) we will have: <strong>1H2-18O1</strong></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Also, substances may be added manually in the table, by:</p>
+<ul>
+<li><p>Add rows (clicking the <em>Add</em> button)</p></li>
+<li><p>Fill in the three boxes in the row</p>
+<ul>
+<li><p>Especie: Label of identification</p></li>
+<li><p>Masa: The mass of the substance in AMU. It will determine the position and width of the peak</p></li>
+<li><p>Población: Abundance of the substance. Determines the heigth of the simulated peak.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="configuracion-de-parametros">
+<h2>Parameters configuration<a class="headerlink" href="#configuracion-de-parametros" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>The box <em>Automatic Update</em> allows to see modifications on real time when parameters are changed.</p></li>
+<li><p>The button <em>Properties</em> (<em>Alt p</em>) opens a window with options for construction and operation parameters</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="ventana-de-configuracion">
+<h2>Configuration window<a class="headerlink" href="#ventana-de-configuracion" title="Permalink to this headline">¶</a></h2>
+<p>The properties window is shown in the following figure</p>
+<a class="reference internal image-reference" href="_images/tof_inter_prop.png"><img alt="Ventana inicial del tof" class="align-center" src="_images/tof_inter_prop.png" style="width: 40%;" /></a>
+<p>Here, all construction and operation parameters of the TOF may be configured:</p>
+<div class="section" id="dimensiones-del-tof">
+<h3>TOF dimensions<a class="headerlink" href="#dimensiones-del-tof" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Extraction distance</p></li>
+<li><p>Lenght of the acceleration zone <span class="math notranslate nohighlight">\(d\)</span></p></li>
+<li><p>Free flight distance <span class="math notranslate nohighlight">\(D\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="tensiones-aplicadas">
+<h3>Applied voltages<a class="headerlink" href="#tensiones-aplicadas" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Extraction voltage <span class="math notranslate nohighlight">\(V_s\)</span></p></li>
+<li><p>Acceleration voltage <span class="math notranslate nohighlight">\(V_d\)</span></p></li>
+<li><p>Working temperature <span class="math notranslate nohighlight">\(T\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="laser">
+<h3>Laser<a class="headerlink" href="#laser" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Pulse duration and temporal dependence (normal or uniform)</p></li>
+<li><p>Ionization spot radius and spatial profile (normal or uniform)</p></li>
+</ul>
+</div>
+<div class="section" id="graficos">
+<h3>Plotting<a class="headerlink" href="#graficos" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Negative signal (as shown in osciloscopes)</p></li>
+<li><p>Add a grid</p></li>
+</ul>
+</div>
+<div class="section" id="umbral-de-isotopos">
+<span id="threshold-isotope"></span><h3>Isotope threshold<a class="headerlink" href="#umbral-de-isotopos" title="Permalink to this headline">¶</a></h3>
+<p>The box <em>Threshold isotope</em> allows to set the minimal abundance (percentage) such that the substance is included</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ejemplo1.html" class="btn btn-neutral float-right" title="Example of use of tofsim" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="teoria.html" class="btn btn-neutral float-left" title="Implementation of time-of-flight calculations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Juan Fiol
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

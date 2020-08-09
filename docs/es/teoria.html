@@ -1,0 +1,253 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="es" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Implementación de cálculo de tiempo de vuelo &mdash; documentación de TOF-simulator - 2.99</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="Programa interactivo" href="interactivo.html" />
+    <link rel="prev" title="Instalación" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> TOF-simulator
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                version: 2.99
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Instalación</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Implementación de cálculo de tiempo de vuelo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ecuaciones-de-movimiento">Ecuaciones de movimiento</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#condiciones-iniciales">Condiciones iniciales</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="interactivo.html">Programa interactivo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ejemplo1.html">Ejemplos de uso del módulo tofsim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tofsim.html">Package API</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TOF-simulator</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Implementación de cálculo de tiempo de vuelo</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/teoria.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="implementacion-de-calculo-de-tiempo-de-vuelo">
+<h1>Implementación de cálculo de tiempo de vuelo<a class="headerlink" href="#implementacion-de-calculo-de-tiempo-de-vuelo" title="Enlazar permanentemente con este título">¶</a></h1>
+<a class="reference internal image-reference" href="_images/diagrama_tof.png"><img alt="Diagrama de Tiempo de vuelo" class="align-center" src="_images/diagrama_tof.png" style="width: 80%;" /></a>
+<div class="section" id="ecuaciones-de-movimiento">
+<h2>Ecuaciones de movimiento<a class="headerlink" href="#ecuaciones-de-movimiento" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Las ecuaciones de movimiento para cada tramo del tiempo de vuelo son</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}v &amp;= v_{0} + a t \\
+\Delta s &amp;= v_{0} t + a t^{2}/2 \qquad (a = q E /m )\end{split}\]</div>
+<p>Definiendo las cantidades adimensionales</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}u &amp;\equiv \sqrt{m} v \\
+f &amp;\equiv a/m = qE  \,, \\
+T &amp;\equiv t/\sqrt{m}\end{split}\]</div>
+<p>y resolviendo el tiempo obtenemos</p>
+<div class="math notranslate nohighlight">
+\[T = \left[\sqrt{u_{0}^{2} + 2 \Delta s\, f} - u_{0}\right]/f\]</div>
+<p>Los tiempos de vuelo para cada tramo serán (<span class="math notranslate nohighlight">\(t_{j} = \sqrt{m}\,T_{j}\)</span>):</p>
+<div class="math notranslate nohighlight">
+\begin{align*}
+   T_{s} &amp;=  \left[\sqrt{u_{0}^{2} + 2 (s_{0} - x_{0})\, q E_{s}} - u_{0}\right]/(q E_{s}) &amp; u_{s} &amp;= u_{0} + q \,E_{s} T_{s} \\
+   T_{d} &amp;=  \left[\sqrt{u_{s}^{2} + 2\, q\,d E_{d}} - u_{s}\right]/(q E_{d}) &amp; u_{d} &amp;= u_{s} + q\, E_{d} \,T_{d} \\
+   T_{D} &amp;=  D/u_{d}
+\end{align*}</div></div>
+<div class="section" id="condiciones-iniciales">
+<h2>Condiciones iniciales<a class="headerlink" href="#condiciones-iniciales" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><ul>
+<li><p>La distribución de velocidades inicial en la dirección de aceleración está dada por la distribución de Maxwell-Boltzmann</p>
+<div class="math notranslate nohighlight">
+\[P(u_{0}) = \frac{1}{\mathcal{Z}}\, e^{-u_{0}^{2}/2k_{B}T}\]</div>
+<p>con ancho <span class="math notranslate nohighlight">\(\sigma = \sqrt{k_{B} T}\)</span></p>
+</li>
+<li><p>La distribución de posición puede elegirse uniforme de ancho <span class="math notranslate nohighlight">\(\delta s\)</span>, o <em>normal</em> con <span class="math notranslate nohighlight">\(\sigma= \delta s/2\)</span>.</p></li>
+<li><p>La distribución de tiempos iniciales puede elegirse uniforme de ancho <span class="math notranslate nohighlight">\(\delta t\)</span>, o <em>normal</em> con <span class="math notranslate nohighlight">\(\sigma= \delta t/2\)</span>. El valor default es <span class="math notranslate nohighlight">\(\delta t= 8~\mathrm{ns}\)</span>.</p></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="interactivo.html" class="btn btn-neutral float-right" title="Programa interactivo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral float-left" title="Instalación" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Juan Fiol
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

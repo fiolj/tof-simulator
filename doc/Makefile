@@ -21,16 +21,12 @@ help:
 
 doc-es:
 	make -e SPHINXOPTS="-D language='es'" html
-	rsync -ruv build/html/ build/html_es
+	mv build/html/* ../docs/es 
 
 doc-en:
 	make -e SPHINXOPTS="-D language='en'" html
-	rsync -ruv build/html/ build/html_en
+	mv build/html/* ../docs/ 
 
-
-update_web: clean-src doc-en doc-es
-	rsync --delete -rv build/html_en/* ~/trabajo/Proyectos/fiolj-github/tof-simulator/en/
-	rsync --delete -rv build/html_es/* ~/trabajo/Proyectos/fiolj-github/tof-simulator/es/
 
 clean-src:
 	rm -f source/*.*~
