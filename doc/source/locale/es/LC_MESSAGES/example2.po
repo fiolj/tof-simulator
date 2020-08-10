@@ -1,0 +1,42 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Juan Fiol
+# This file is distributed under the same license as the TOF-simulator
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: TOF-simulator version: 2.99\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-08-09 18:59-0300\n"
+"PO-Revision-Date: 2020-08-09 19:03-0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: ../../source/example2.rst:3
+msgid "Example: Get peaks position and width"
+msgstr "Ejemplo: Obtener las posiciones y anchos de los picos"
+
+#: ../../source/example2.rst:5
+msgid "This code is in the *examples* folder"
+msgstr "Este código puede encontrarse en el directorio *examples*"
+
+#: ../../source/example2.rst:7
+msgid "First we create the `ToF` and set the parameters"
+msgstr "Primero creamos el `ToF` y damos valores a los parámetros"
+
+#: ../../source/example2.rst:20
+msgid "Then, we create the spectra and get the peaks position and widths"
+msgstr "Después, creamos los espectros y extraemos la posición y ancho de los picos"
+
+#: ../../source/example2.rst:28
+msgid ""
+"Here `p` is a dictionary, we put the data of interest in arrays and plot "
+"them"
+msgstr "Aquí `p` es un diccionario. Ponemos los datos de interés en un *array*"
+
