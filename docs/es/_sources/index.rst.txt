@@ -12,9 +12,15 @@ Contenidos:
    :maxdepth: 2
 
    installation
-   teoria
    interactivo
-   ejemplo1
+   examples
+
+   teoria
+
+.. toctree::
+   :maxdepth: 2
+   :caption: API Docs   
+
    tofsim
 
 

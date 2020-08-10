@@ -20,12 +20,14 @@ help:
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 doc-es:
+	make clean
 	make -e SPHINXOPTS="-D language='es'" html
-	mv build/html/* ../docs/es 
+	rsync -vr build/html/* ../docs/es/ 
 
 doc-en:
+	make clean
 	make -e SPHINXOPTS="-D language='en'" html
-	mv build/html/* ../docs/ 
+	rsync -rv build/html/* ../docs/ 
 
 
 clean-src:

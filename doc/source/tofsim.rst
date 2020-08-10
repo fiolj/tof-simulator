@@ -19,13 +19,3 @@ tof
    :members:
    :no-undoc-members:
    :show-inheritance:
-
-********
-tof\_gtk
-********
-
-.. automodule:: tofsim.tof_gtk
-   :members:
-   :no-undoc-members:
-   :show-inheritance:
-
