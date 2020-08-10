@@ -22,7 +22,7 @@ project = 'TOF-simulator'
 copyright = '2020, Juan Fiol'
 author = 'Juan Fiol'
 
-from tofsim.version import VERSION
+VERSION = 2.99
 release = VERSION
 
 version = 'version: ' + release
