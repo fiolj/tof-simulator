@@ -22,7 +22,7 @@ project = 'TOF-simulator'
 copyright = '2020, Juan Fiol'
 author = 'Juan Fiol'
 
-VERSION = "2.99"
+VERSION = "3.00"
 release = VERSION
 
 version = 'version: ' + release

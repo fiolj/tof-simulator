@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TOF-simulator version: 2.99\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-09 18:59-0300\n"
+"POT-Creation-Date: 2020-08-15 18:37-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,25 +18,84 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: ../../source/example2.rst:3
-msgid "Example: Get peaks position and width"
+#: ../../source/example2.rst:2
+msgid "Getting Information on the peaks"
 msgstr ""
 
-#: ../../source/example2.rst:5
-msgid "This code is in the *examples* folder"
-msgstr ""
-
-#: ../../source/example2.rst:7
-msgid "First we create the `ToF` and set the parameters"
-msgstr ""
-
-#: ../../source/example2.rst:20
-msgid "Then, we create the spectra and get the peaks position and widths"
-msgstr ""
-
-#: ../../source/example2.rst:28
+#: ../../source/example2.rst:4
 msgid ""
-"Here `p` is a dictionary, we put the data of interest in arrays and plot "
-"them"
+"We want to get the peaks from the spectra. We start importing and "
+"creating the TOF object with all isotopes from Ar and Kr"
 msgstr ""
+
+#: ../../source/example2.rst:23
+msgid ""
+"Here ``p`` is a dictionary-like object, where each key is a substance and"
+" each value is a dictionary containing the information on the "
+"corresponding peak"
+msgstr ""
+
+#: ../../source/example2.rst:69
+msgid "Output the data of the peaks"
+msgstr ""
+
+#: ../../source/example2.rst:92
+msgid ""
+"If we want to print them in a different way we may use directly the "
+"dictionary-like object or the list obtained by using ``tolist()`` method"
+msgstr ""
+
+#: ../../source/example2.rst:113
+msgid ""
+"Importing and using the tabulate package we may output it to any "
+"supported format. For instance, “fancy_grid”:"
+msgstr ""
+
+#: ../../source/example2.rst:151
+msgid "or “latex”:"
+msgstr ""
+
+#: ../../source/example2.rst:178
+msgid "Plot the data"
+msgstr ""
+
+#: ../../source/example2.rst:189
+msgid ""
+"We will plot the position and width of each peak as a function of the "
+"mass of the fragment:"
+msgstr ""
+
+#~ msgid "Example: Get peaks position and width"
+#~ msgstr ""
+
+#~ msgid "This code is in the *examples* folder"
+#~ msgstr ""
+
+#~ msgid "First we create the `ToF` and set the parameters"
+#~ msgstr ""
+
+#~ msgid "Then, we create the spectra and get the peaks position and widths"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Here `p` is a dictionary, we put"
+#~ " the data of interest in arrays "
+#~ "and plot them"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Here ``p`` is a dictionary-like "
+#~ "object, where each key is a "
+#~ "substance and each value is a "
+#~ "dictiionary with the information on each"
+#~ " peak"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Here ``p`` is a dictionary-like "
+#~ "object, where each key is a "
+#~ "substance and each value is a "
+#~ "dictionary with the information on each"
+#~ " peak"
+#~ msgstr ""
 

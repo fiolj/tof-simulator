@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TOF-simulator version: 2.99\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-09 18:59-0300\n"
-"PO-Revision-Date: 2020-08-09 19:03-0300\n"
+"POT-Creation-Date: 2020-08-15 18:27-0300\n"
+"PO-Revision-Date: 2020-08-15 18:29-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,25 +18,82 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: ../../source/example2.rst:3
-msgid "Example: Get peaks position and width"
-msgstr "Ejemplo: Obtener las posiciones y anchos de los picos"
+#: ../../source/example2.rst:2
+msgid "Getting Information on the peaks"
+msgstr "Cómo obtener información sobre los picos"
 
-#: ../../source/example2.rst:5
-msgid "This code is in the *examples* folder"
-msgstr "Este código puede encontrarse en el directorio *examples*"
-
-#: ../../source/example2.rst:7
-msgid "First we create the `ToF` and set the parameters"
-msgstr "Primero creamos el `ToF` y damos valores a los parámetros"
-
-#: ../../source/example2.rst:20
-msgid "Then, we create the spectra and get the peaks position and widths"
-msgstr "Después, creamos los espectros y extraemos la posición y ancho de los picos"
-
-#: ../../source/example2.rst:28
+#: ../../source/example2.rst:4
 msgid ""
-"Here `p` is a dictionary, we put the data of interest in arrays and plot "
-"them"
-msgstr "Aquí `p` es un diccionario. Ponemos los datos de interés en un *array*"
+"We want to get the peaks from the spectra. We start importing and "
+"creating the TOF object with all isotopes from Ar and Kr"
+msgstr ""
+"Queremos obtener información sobre los picos de los espectros. Empezamos "
+"importando el objeto `ToF` con los isótopos deseados (Ar y Kr)"
+
+#: ../../source/example2.rst:23
+#, fuzzy
+msgid ""
+"Here ``p`` is a dictionary-like object, where each key is a substance and"
+" each value is a dictionary with the information on each peak"
+msgstr ""
+"Aquí ``p`` es un objeto similar a un diccionario, donde cada clave denota la sustancia y"
+" los valores tienen la información sobre el pico correspondiente"
+
+#: ../../source/example2.rst:69
+msgid "Output the data of the peaks"
+msgstr "Imprimir la información sobre los picos"
+
+#: ../../source/example2.rst:92
+msgid ""
+"If we want to print them in a different way we may use directly the "
+"dictionary-like object or the list obtained by using ``tolist()`` method"
+msgstr ""
+"Si queremos imprimir los datos de los picos utilizando alternativas "
+"propias podemos usar la salida del método ``tolist()`` que convierte la "
+"información a una lista"
+
+#: ../../source/example2.rst:113
+msgid ""
+"Importing and using the tabulate package we may output it to any "
+"supported format. For instance, “fancy_grid”:"
+msgstr ""
+"Con ello, utilizando el paquete *tabulate* podemos exportar la "
+"información en una variedad de formatos. Por ejemplo \"fancy_grid\":"
+
+#: ../../source/example2.rst:151
+msgid "or “latex”:"
+msgstr "o \"latex\":"
+
+#: ../../source/example2.rst:178
+msgid "Plot the data"
+msgstr "Graficar los datos"
+
+#: ../../source/example2.rst:189
+msgid ""
+"We will plot the position and width of each peak as a function of the "
+"mass of the fragment:"
+msgstr ""
+"Vamos a graficar la posición y ancho de los picos como función de la masa"
+" de cada fragmento:"
+
+#~ msgid "Example: Get peaks position and width"
+#~ msgstr "Ejemplo: Obtener las posiciones y anchos de los picos"
+
+#~ msgid "This code is in the *examples* folder"
+#~ msgstr "Este código puede encontrarse en el directorio *examples*"
+
+#~ msgid "First we create the `ToF` and set the parameters"
+#~ msgstr "Primero creamos el `ToF` y damos valores a los parámetros"
+
+#~ msgid "Then, we create the spectra and get the peaks position and widths"
+#~ msgstr ""
+#~ "Después, creamos los espectros y "
+#~ "extraemos la posición y ancho de "
+#~ "los picos"
+
+#~ msgid ""
+#~ "Here `p` is a dictionary, we put"
+#~ " the data of interest in arrays "
+#~ "and plot them"
+#~ msgstr "Aquí `p` es un diccionario. Ponemos los datos de interés en un *array*"
 

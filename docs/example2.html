@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Example: Get peaks position and width &mdash; TOF-simulator 2.99 documentation</title>
+  <title>Getting Information on the peaks &mdash; TOF-simulator 3.00 documentation</title>
   
 
   
@@ -62,7 +62,7 @@
             
             
               <div class="version">
-                version: 2.99
+                version: 3.00
               </div>
             
           
@@ -91,7 +91,11 @@
 <li class="toctree-l1"><a class="reference internal" href="interactivo.html">Graphical interface</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="examples.html">Examples</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="ejemplo1.html">Example of use of tofsim</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Example: Get peaks position and width</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Getting Information on the peaks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#output-the-data-of-the-peaks">Output the data of the peaks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plot-the-data">Plot the data</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="teoria.html">Implementation of time-of-flight calculations</a></li>
@@ -146,7 +150,7 @@
         
           <li><a href="examples.html">Examples</a> &raquo;</li>
         
-      <li>Example: Get peaks position and width</li>
+      <li>Getting Information on the peaks</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -167,32 +171,147 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="example-get-peaks-position-and-width">
-<h1>Example: Get peaks position and width<a class="headerlink" href="#example-get-peaks-position-and-width" title="Permalink to this headline">¶</a></h1>
-<p>This code is in the <em>examples</em> folder</p>
-<p>First we create the <cite>ToF</cite> and set the parameters</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tofsim</span> <span class="kn">import</span> <span class="n">ToF</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="c1"># Create the TOF with all isotopes from Xe, Ar and Kr</span>
-<span class="n">T</span> <span class="o">=</span> <span class="n">ToF</span><span class="p">(</span><span class="s1">&#39;Xe,Ar,Kr&#39;</span><span class="p">)</span>
+  <div class="section" id="getting-information-on-the-peaks">
+<h1>Getting Information on the peaks<a class="headerlink" href="#getting-information-on-the-peaks" title="Permalink to this headline">¶</a></h1>
+<p>We want to get the peaks from the spectra. We start importing and
+creating the TOF object with all isotopes from Ar and Kr</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tofsim</span> <span class="kn">import</span> <span class="n">ToF</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">ToF</span><span class="p">(</span><span class="s1">&#39;Ar,Kr&#39;</span><span class="p">)</span>
 <span class="n">T</span><span class="o">.</span><span class="n">Vs</span> <span class="o">=</span> <span class="mi">120</span>                      <span class="c1"># Extraction voltaje</span>
 <span class="n">T</span><span class="o">.</span><span class="n">Vd</span> <span class="o">=</span> <span class="mi">3000</span>                     <span class="c1"># Acceleration voltaje</span>
+<span class="n">T</span><span class="o">.</span><span class="n">signal</span><span class="p">();</span>                     <span class="c1"># Make the spectra</span>
 </pre></div>
 </div>
-<p>Then, we create the spectra and get the peaks position and widths</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span><span class="o">.</span><span class="n">signal</span><span class="p">()</span>                      <span class="c1"># Make the spectra</span>
-
-<span class="n">p</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">get_statistics_peaks</span><span class="p">()</span>    <span class="c1"># Get the peaks</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">T</span><span class="o">.</span><span class="n">get_statistics_peaks</span><span class="p">()</span>    <span class="c1"># Get the peaks</span>
 </pre></div>
 </div>
-<p>Here <cite>p</cite> is a dictionary, we put the data of interest in arrays and plot them</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">T</span><span class="o">.</span><span class="n">fragments</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s1">&#39;M&#39;</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">]]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">p</span><span class="o">.</span><span class="n">items</span><span class="p">()])</span><span class="o">.</span><span class="n">T</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Peak position&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Peak width&#39;</span><span class="p">)</span>
+<p>Here <code class="docutils literal notranslate"><span class="pre">p</span></code> is a dictionary-like object, where each key is a substance
+and each value is a dictionary containing the information on the corresponding peak</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dict_keys</span><span class="p">([</span><span class="s1">&#39;36Ar^{+}&#39;</span><span class="p">,</span> <span class="s1">&#39;38Ar^{+}&#39;</span><span class="p">,</span> <span class="s1">&#39;40Ar^{+}&#39;</span><span class="p">,</span> <span class="s1">&#39;78Kr^{+}&#39;</span><span class="p">,</span> <span class="s1">&#39;80Kr^{+}&#39;</span><span class="p">,</span> <span class="s1">&#39;82Kr^{+}&#39;</span><span class="p">,</span> <span class="s1">&#39;83Kr^{+}&#39;</span><span class="p">,</span> <span class="s1">&#39;84Kr^{+}&#39;</span><span class="p">,</span> <span class="s1">&#39;86Kr^{+}&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">53</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">60</span><span class="p">),</span>
+ <span class="s1">&#39;position&#39;</span><span class="p">:</span> <span class="mf">8.519009871520703</span><span class="p">,</span>
+ <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="mf">6.774956591427326</span><span class="p">,</span>
+ <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="mf">0.03684000090535555</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">headers</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;position&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="section" id="output-the-data-of-the-peaks">
+<h2>Output the data of the peaks<a class="headerlink" href="#output-the-data-of-the-peaks" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Substance</span>    <span class="n">index</span>              <span class="n">position</span>      <span class="n">height</span>      <span class="n">width</span>
+<span class="o">-----------</span>  <span class="o">---------------</span>  <span class="o">----------</span>  <span class="o">----------</span>  <span class="o">---------</span>
+<span class="mi">36</span><span class="n">Ar</span><span class="o">^</span><span class="p">{</span><span class="o">+</span><span class="p">}</span>     <span class="p">(</span><span class="mi">53</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>        <span class="mf">8.51901</span>     <span class="mf">6.77496</span>  <span class="mf">0.03684</span>
+<span class="mi">38</span><span class="n">Ar</span><span class="o">^</span><span class="p">{</span><span class="o">+</span><span class="p">}</span>     <span class="p">(</span><span class="mi">97</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">104</span><span class="p">)</span>      <span class="mf">8.75419</span>     <span class="mf">1.28081</span>  <span class="mf">0.03684</span>
+<span class="mi">40</span><span class="n">Ar</span><span class="o">^</span><span class="p">{</span><span class="o">+</span><span class="p">}</span>     <span class="p">(</span><span class="mi">140</span><span class="p">,</span> <span class="mi">144</span><span class="p">,</span> <span class="mi">147</span><span class="p">)</span>     <span class="mf">8.98108</span>  <span class="mf">2010.2</span>      <span class="mf">0.03684</span>
+<span class="mi">78</span><span class="n">Kr</span><span class="o">^</span><span class="p">{</span><span class="o">+</span><span class="p">}</span>     <span class="p">(</span><span class="mi">816</span><span class="p">,</span> <span class="mi">820</span><span class="p">,</span> <span class="mi">825</span><span class="p">)</span>    <span class="mf">12.5402</span>      <span class="mf">6.76633</span>  <span class="mf">0.0473657</span>
+<span class="mi">80</span><span class="n">Kr</span><span class="o">^</span><span class="p">{</span><span class="o">+</span><span class="p">}</span>     <span class="p">(</span><span class="mi">846</span><span class="p">,</span> <span class="mi">851</span><span class="p">,</span> <span class="mi">855</span><span class="p">)</span>    <span class="mf">12.7016</span>     <span class="mf">43.8943</span>   <span class="mf">0.0473657</span>
+<span class="mi">82</span><span class="n">Kr</span><span class="o">^</span><span class="p">{</span><span class="o">+</span><span class="p">}</span>     <span class="p">(</span><span class="mi">876</span><span class="p">,</span> <span class="mi">881</span><span class="p">,</span> <span class="mi">885</span><span class="p">)</span>    <span class="mf">12.8594</span>    <span class="mf">222.046</span>    <span class="mf">0.0473657</span>
+<span class="mi">83</span><span class="n">Kr</span><span class="o">^</span><span class="p">{</span><span class="o">+</span><span class="p">}</span>     <span class="p">(</span><span class="mi">891</span><span class="p">,</span> <span class="mi">896</span><span class="p">,</span> <span class="mi">900</span><span class="p">)</span>    <span class="mf">12.938</span>     <span class="mf">220.033</span>    <span class="mf">0.0473657</span>
+<span class="mi">84</span><span class="n">Kr</span><span class="o">^</span><span class="p">{</span><span class="o">+</span><span class="p">}</span>     <span class="p">(</span><span class="mi">906</span><span class="p">,</span> <span class="mi">910</span><span class="p">,</span> <span class="mi">915</span><span class="p">)</span>    <span class="mf">13.0137</span>   <span class="mf">1079.69</span>     <span class="mf">0.0473657</span>
+<span class="mi">86</span><span class="n">Kr</span><span class="o">^</span><span class="p">{</span><span class="o">+</span><span class="p">}</span>     <span class="p">(</span><span class="mi">935</span><span class="p">,</span> <span class="mi">940</span><span class="p">,</span> <span class="mi">944</span><span class="p">)</span>    <span class="mf">13.1696</span>    <span class="mf">329.294</span>    <span class="mf">0.0473657</span>
+</pre></div>
+</div>
+<p>If we want to print them in a different way we may use directly the
+dictionary-like object or the list obtained by using <code class="docutils literal notranslate"><span class="pre">tolist()</span></code> method</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">pl</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;36Ar^{+}&#39;</span><span class="p">,</span>
+ <span class="p">(</span><span class="mi">53</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">60</span><span class="p">),</span>
+ <span class="mf">8.519009871520703</span><span class="p">,</span>
+ <span class="mf">6.774956591427326</span><span class="p">,</span>
+ <span class="mf">0.03684000090535555</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Importing and using the tabulate package we may output it to any
+supported format. For instance, “fancy_grid”:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Fragment&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">headers</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s1">&#39;fancy_grid&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>╒════════════╤═════════════════╤════════════╤════════════╤═══════════╕
+│ Fragment   │ index           │   position │     height │     width │
+╞════════════╪═════════════════╪════════════╪════════════╪═══════════╡
+│ 36Ar^{+}   │ (53, 56, 60)    │    8.51901 │    6.77496 │ 0.03684   │
+├────────────┼─────────────────┼────────────┼────────────┼───────────┤
+│ 38Ar^{+}   │ (97, 101, 104)  │    8.75419 │    1.28081 │ 0.03684   │
+├────────────┼─────────────────┼────────────┼────────────┼───────────┤
+│ 40Ar^{+}   │ (140, 144, 147) │    8.98108 │ 2010.2     │ 0.03684   │
+├────────────┼─────────────────┼────────────┼────────────┼───────────┤
+│ 78Kr^{+}   │ (816, 820, 825) │   12.5402  │    6.76633 │ 0.0473657 │
+├────────────┼─────────────────┼────────────┼────────────┼───────────┤
+│ 80Kr^{+}   │ (846, 851, 855) │   12.7016  │   43.8943  │ 0.0473657 │
+├────────────┼─────────────────┼────────────┼────────────┼───────────┤
+│ 82Kr^{+}   │ (876, 881, 885) │   12.8594  │  222.046   │ 0.0473657 │
+├────────────┼─────────────────┼────────────┼────────────┼───────────┤
+│ 83Kr^{+}   │ (891, 896, 900) │   12.938   │  220.033   │ 0.0473657 │
+├────────────┼─────────────────┼────────────┼────────────┼───────────┤
+│ 84Kr^{+}   │ (906, 910, 915) │   13.0137  │ 1079.69    │ 0.0473657 │
+├────────────┼─────────────────┼────────────┼────────────┼───────────┤
+│ 86Kr^{+}   │ (935, 940, 944) │   13.1696  │  329.294   │ 0.0473657 │
+╘════════════╧═════════════════╧════════════╧════════════╧═══════════╛
+</pre></div>
+</div>
+<p>or “latex”:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="s1">&#39;latex&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<pre class="literal-block">begin{tabular}{llrrr}
+hline
+ Fragment   &amp; index           &amp;   position &amp;     height &amp;     width \
+hline
+ 36Ar^{}{+}   &amp; (53, 56, 60)    &amp;    8.51901 &amp;    6.77496 &amp; 0.03684   \
+ 38Ar^{}{+}   &amp; (97, 101, 104)  &amp;    8.75419 &amp;    1.28081 &amp; 0.03684   \
+ 40Ar^{}{+}   &amp; (140, 144, 147) &amp;    8.98108 &amp; 2010.2     &amp; 0.03684   \
+ 78Kr^{}{+}   &amp; (816, 820, 825) &amp;   12.5402  &amp;    6.76633 &amp; 0.0473657 \
+ 80Kr^{}{+}   &amp; (846, 851, 855) &amp;   12.7016  &amp;   43.8943  &amp; 0.0473657 \
+ 82Kr^{}{+}   &amp; (876, 881, 885) &amp;   12.8594  &amp;  222.046   &amp; 0.0473657 \
+ 83Kr^{}{+}   &amp; (891, 896, 900) &amp;   12.938   &amp;  220.033   &amp; 0.0473657 \
+ 84Kr^{}{+}   &amp; (906, 910, 915) &amp;   13.0137  &amp; 1079.69    &amp; 0.0473657 \
+ 86Kr^{}{+}   &amp; (935, 940, 944) &amp;   13.1696  &amp;  329.294   &amp; 0.0473657 \
+hline
+end{tabular}</pre>
+</div>
+<div class="section" id="plot-the-data">
+<h2>Plot the data<a class="headerlink" href="#plot-the-data" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">pl</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We will plot the position and width of each peak as a function of the
+mass of the fragment:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">T</span><span class="o">.</span><span class="n">fragments</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s1">&#39;M&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">pa</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">ypos</span> <span class="o">=</span> <span class="n">pa</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">ywidth</span> <span class="o">=</span> <span class="n">pa</span><span class="p">[:,</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ypos</span><span class="p">,</span> <span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Peak position&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">ywidth</span><span class="p">,</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Peak width&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Mass [AMU]&#39;</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Time [$\mu s$]&#39;</span><span class="p">)</span>
@@ -203,6 +322,7 @@
 </pre></div>
 </div>
 <img alt="_images/example2.png" src="_images/example2.png" />
+</div>
 </div>
 
 

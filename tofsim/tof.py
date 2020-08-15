@@ -88,7 +88,7 @@ def _get_peak(x, y, N=10):
   return imax, x0, y0
 
 
-def _get_peak_charact(x, y, fwidth=1 / np.e):
+def get_one_peak(x, y, fwidth=1 / np.e):
   """Returns features of a single peak.
   Returns a list with:
   - Position 0: indexes of position of:
@@ -143,7 +143,8 @@ class ToF(object):
     # Plot the signals
     T.make_plot(fname='tof2.png', negative=True, show_legend=True, show_all=True)
 
-    # Just printing the object gives all the information on construction and condition parameters as well as the substances being simulated
+    # Just printing the object gives all the information on construction and
+    # condition parameters as well as the substances being simulated
     print(T)
 
   """
@@ -460,19 +461,26 @@ Construction parameters:
         s['t'] = 0
 
   def get_statistics_peaks(self, substances='all', fwidth=1 / np.e):
-    """Returns the peaks of the spectra for substances.
-    fwidth is the fraction of the maximum at which to evaluate the full width.
-    fwidth = 0.5 corresponds to FWHM
+    """Find peaks
+
+    Parameters
+    ----------
+    substances: 'all' or list
+      - if 'all' find the peak for every fragment in the TOF
+      - if substance is a list of strings, each element must be a fragment in TOF
+
+    fwidth: float
+       fraction of the maximum at which to evaluate the full width.
+       For instance, fwidth = 0.5 corresponds to FWHM
     """
     if substances == 'all': frags = list(self.fragments.ListItems)
     elif substances in self.fragments.ListItems: frags = [substances]
     else: frags = []
 
-    peaks = {}
+    peaks = Peaks()
     for m in frags:
-      ind, x, y = _get_peak_charact(self.times['time'], self.times[m], fwidth=fwidth)
-      peaks[m] = {'index': ind[1],
-                  'position': x[1], 'height': y[1], 'width': x[2] - x[0]}
+      ind, x, y = get_one_peak(self.times['time'], self.times[m], fwidth=fwidth)
+      peaks[m] = {'index': ind, 'position': x[1], 'height': y[1], 'width': x[2] - x[0]}
 
     return peaks
 
@@ -646,3 +654,50 @@ Construction parameters:
     if fname is not None:
       fig.savefig(fname, bbox_inches='tight')
     return fig
+
+
+class Peaks(dict):
+  """Simple object describing spectra peaks for the TOF.
+
+  It is essentially a dictionary, with a few added convenience methods
+
+  Each peak is described by a dictionary whose key is the label of the fragment.
+
+  The values are:
+
+    - 'index': tuple
+         has the form (im, i0, ip) with the indexes of the peak (i0) and the two positions where the width is obtained.
+    - 'position': float
+         is value of the coordinate where the peak is located, in microseconds.
+    - 'height': float
+         is the value of the peak.
+    - 'width': float
+         is the width of the peak in microseconds.
+  """
+
+  def __init__(self):
+    self.headers = ['index', 'position', 'height', 'width']
+
+  def tolist(self):
+    """Returns a list with the data describing the peaks. The form is:
+    ['Substance', 'index', 'position', 'height', 'width']
+    """
+    peaks = [[k] + [v[h] for h in self.headers] for k, v in self.items()]
+    return peaks
+
+  def __str__(self):
+    """Nicer printing of peak information
+    """
+    L = self.tolist()
+    headers = ['Substance'] + self.headers
+    try:
+      from tabulate import tabulate
+      return "\n" + tabulate(L, headers=headers, tablefmt='simple')
+    except BaseException:
+      s = " ".join([h.center(15) for h in headers])
+      s += "\n" + " ".join([15 * "-" for h in header]) + "\n"
+      for r in L:
+        s1 = [str(c).center(15) for c in r[:2]]
+        s1 += ["{:11.6f}".format(c).center(15) for c in r[2:]]
+        s += " ".join(s1) + "\n"
+      return s

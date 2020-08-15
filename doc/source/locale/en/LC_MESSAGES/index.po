@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TOF-simulator version: 2.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-09 18:59-0300\n"
+"POT-Creation-Date: 2020-08-15 12:48-0300\n"
 "PO-Revision-Date: 2020-08-08 21:41-0300\n"
 "Last-Translator: Juan Fiol <juanfiol@gmail.com>\n"
 "Language: en\n"
@@ -19,6 +19,10 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
+
+#: ../../source/index.rst:20
+msgid "API Docs"
+msgstr ""
 
 #: ../../source/index.rst:3
 msgid "Tof-simulator"
@@ -32,19 +36,19 @@ msgstr "`Esta documentación en castellano <es/index.html>`_ "
 msgid "Contenidos:"
 msgstr "Contents"
 
-#: ../../source/index.rst:24
+#: ../../source/index.rst:30
 msgid "Indices y tablas"
 msgstr ""
 
-#: ../../source/index.rst:26
+#: ../../source/index.rst:32
 msgid ":ref:`genindex`"
 msgstr ""
 
-#: ../../source/index.rst:27
+#: ../../source/index.rst:33
 msgid ":ref:`modindex`"
 msgstr ""
 
-#: ../../source/index.rst:28
+#: ../../source/index.rst:34
 msgid ":ref:`search`"
 msgstr ""
 

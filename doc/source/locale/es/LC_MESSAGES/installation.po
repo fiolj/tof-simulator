@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TOF-simulator version: 2.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-02 10:20-0300\n"
-"PO-Revision-Date: 2020-08-02 14:21-0300\n"
+"POT-Creation-Date: 2020-08-15 12:54-0300\n"
+"PO-Revision-Date: 2020-08-15 12:55-0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,9 @@ msgstr "Instalación"
 
 #: ../../source/installation.rst:5
 msgid "Install using pip, either system-wide (administrator rights are needed)"
-msgstr "Instalación usando pip, para todos los usuarios (se necesitan derechos de administrador),"
+msgstr ""
+"Instalación usando pip, para todos los usuarios (se necesitan derechos de"
+" administrador),"
 
 #: ../../source/installation.rst:11
 msgid "or (usually preferred) for the current user:"
@@ -43,28 +45,46 @@ msgid "Only `Numpy <https://numpy.org>`_ is required."
 msgstr "Sólo `Numpy <https://numpy.org>`_ es necesario."
 
 #: ../../source/installation.rst:25
-msgid ""
-"Optionally,  `matplotlib <matplotlib.org>`_  is needed to use included "
-"capabilities for plotting."
-msgstr "Opcionalmente,  `matplotlib <matplotlib.org>`_  es necesario si se quieren usar las rutinas de graficación"
+msgid "Optionally:"
+msgstr "Opcionalmente"
 
 #: ../../source/installation.rst:27
-msgid "To use the GUI, the requirements are:"
-msgstr "Para usar la interfaz gráficas los requerimientos son:"
+msgid ""
+"Package `tabulate <https://github.com/astanin/python-tabulate>`_ for "
+"pretty-printing information on TOF parameters and masses."
+msgstr ""
+"Módulo `tabulate <https://github.com/astanin/python-tabulate>`_ para "
+"darle buen formato a la información sobre parámetros del TOF y las masas."
 
 #: ../../source/installation.rst:29
+#, fuzzy
+msgid ""
+"`matplotlib <matplotlib.org>`_  is needed to use included capabilities "
+"for plotting."
+msgstr ""
+"Opcionalmente,  `matplotlib <matplotlib.org>`_  es necesario si se "
+"quieren usar las rutinas de graficación"
+
+#: ../../source/installation.rst:31
+#, fuzzy
+msgid "To use the GUI, the additional requirements are:"
+msgstr "Para usar la interfaz gráficas los requerimientos adicionales son:"
+
+#: ../../source/installation.rst:33
 msgid "`matplotlib <matplotlib.org>`_"
 msgstr "`matplotlib <matplotlib.org>`_"
 
-#: ../../source/installation.rst:31
+#: ../../source/installation.rst:35
 msgid "`PyGobject <https://pygobject.readthedocs.io/en/latest>`_."
 msgstr ""
 
-#: ../../source/installation.rst:33
+#: ../../source/installation.rst:37
 msgid ""
 "Information on how to install PyGobject on different platforms may be "
 "found in `the documentation "
 "<https://pygobject.readthedocs.io/en/latest/getting_started.html>`_"
-msgstr "Información sobre como instalar PyGobject en diferentes plataformas se encuentra en su "
-"`documentación <https://pygobject.readthedocs.io/en/latest/getting_started.html>`_"
+msgstr ""
+"Información sobre como instalar PyGobject en diferentes plataformas se "
+"encuentra en su `documentación "
+"<https://pygobject.readthedocs.io/en/latest/getting_started.html>`_"
 

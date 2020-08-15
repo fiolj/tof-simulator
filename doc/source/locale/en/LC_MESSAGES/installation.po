@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: TOF-simulator version: 2.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-02 10:20-0300\n"
+"POT-Creation-Date: 2020-08-15 12:54-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,27 +43,46 @@ msgid "Only `Numpy <https://numpy.org>`_ is required."
 msgstr ""
 
 #: ../../source/installation.rst:25
-msgid ""
-"Optionally,  `matplotlib <matplotlib.org>`_  is needed to use included "
-"capabilities for plotting."
+msgid "Optionally:"
 msgstr ""
 
 #: ../../source/installation.rst:27
-msgid "To use the GUI, the requirements are:"
+msgid ""
+"Package `tabulate <https://github.com/astanin/python-tabulate>`_ for "
+"pretty-printing information on TOF parameters and masses."
 msgstr ""
 
 #: ../../source/installation.rst:29
-msgid "`matplotlib <matplotlib.org>`_"
+msgid ""
+"`matplotlib <matplotlib.org>`_  is needed to use included capabilities "
+"for plotting."
 msgstr ""
 
 #: ../../source/installation.rst:31
-msgid "`PyGobject <https://pygobject.readthedocs.io/en/latest>`_."
+msgid "To use the GUI, the additional requirements are:"
 msgstr ""
 
 #: ../../source/installation.rst:33
+msgid "`matplotlib <matplotlib.org>`_"
+msgstr ""
+
+#: ../../source/installation.rst:35
+msgid "`PyGobject <https://pygobject.readthedocs.io/en/latest>`_."
+msgstr ""
+
+#: ../../source/installation.rst:37
 msgid ""
 "Information on how to install PyGobject on different platforms may be "
 "found in `the documentation "
 "<https://pygobject.readthedocs.io/en/latest/getting_started.html>`_"
 msgstr ""
+
+#~ msgid ""
+#~ "Optionally,  `matplotlib <matplotlib.org>`_  is "
+#~ "needed to use included capabilities for"
+#~ " plotting."
+#~ msgstr ""
+
+#~ msgid "To use the GUI, the requirements are:"
+#~ msgstr ""
 
