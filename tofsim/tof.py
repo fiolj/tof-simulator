@@ -90,7 +90,9 @@ def _get_peak(x, y, N=10):
 
 def get_one_peak(x, y, fwidth=1 / np.e):
   """Returns features of a single peak.
+
   Returns a list with:
+
   - Position 0: indexes of position of:
 
     - lower half height
@@ -98,7 +100,9 @@ def get_one_peak(x, y, fwidth=1 / np.e):
     - upper half height
 
   - Position 1: values of x
+
   - Position 2: values of y
+
   """
   im, xm, ym = _get_peak(x, y)
   yf = fwidth * ym
