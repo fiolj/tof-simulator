@@ -32,13 +32,13 @@
     <property name="page_increment">10</property>
   </object>
   <object class="GtkAdjustment" id="adjVd">
-    <property name="upper">10000</property>
+    <property name="upper">20000</property>
     <property name="value">100</property>
     <property name="step_increment">1</property>
     <property name="page_increment">100</property>
   </object>
   <object class="GtkAdjustment" id="adjVs">
-    <property name="upper">10000</property>
+    <property name="upper">20000</property>
     <property name="value">600</property>
     <property name="step_increment">1</property>
     <property name="page_increment">100</property>
