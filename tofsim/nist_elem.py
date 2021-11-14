@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 #
 # This file is part of tof-simulator.
@@ -570,10 +571,6 @@ class Sustancias(dict):
     """
     if key is None: return self.ListItems
     return [k for k in self.ListItems if key(self[k])]
-    # Lista = []
-    # for k in self.ListItems:
-    #   if key(self[k]): Lista.append(k)
-    # return Lista
 
   def sort(self, order=None, reverse=False):
     """Sort the substances according to the specified order.
