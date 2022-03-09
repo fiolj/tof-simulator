@@ -15,7 +15,7 @@ def read(*rnames):
 
 
 long_description = (
-    "\n" + read('README.txt') + '\n' + version.COPYRIGHT
+    "\n" + read('README.rst') + '\n' + version.COPYRIGHT
 )
 
 
