@@ -995,6 +995,7 @@ Selected</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <signal name="clicked" handler="on_butDel_clicked" swapped="no"/>
+		    <accelerator key="minus" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -1011,6 +1012,7 @@ Selected</property>
                     <property name="use_stock">True</property>
                     <property name="always_show_image">True</property>
                     <signal name="clicked" handler="on_butAdd_clicked" swapped="no"/>
+		    <accelerator key="plus" signal="activate" modifiers="GDK_CONTROL_MASK"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -1172,7 +1174,6 @@ Selected</property>
         <property name="use_stock">True</property>
         <property name="always_show_image">True</property>
         <signal name="activate" handler="on_addrow_activate" swapped="no"/>
-        <accelerator key="plus" signal="activate" modifiers="GDK_CONTROL_MASK"/>
       </object>
     </child>
     <child>
@@ -1185,7 +1186,6 @@ Selected</property>
         <property name="use_stock">True</property>
         <property name="always_show_image">True</property>
         <signal name="activate" handler="on_butDel_clicked" swapped="no"/>
-        <accelerator key="minus" signal="activate" modifiers="GDK_CONTROL_MASK"/>
       </object>
     </child>
   </object>

@@ -16,21 +16,24 @@
 # You should have received a copy of the GNU General Public License
 # along with tof-simulator.  If not, see <https://www.gnu.org/licenses/>.
 
+from .nist_elem import analyze_substance
+from .tof import ToF
+from .version import VERSION, COPYRIGHT
+import subprocess as sub
+from pathlib import Path
+# import os
+import sys
+from matplotlib.backends.backend_gtk3 import NavigationToolbar2GTK3 as NavigationToolbar
+from matplotlib.backends.backend_gtk3agg import FigureCanvasGTK3Agg as FigureCanvas
+from matplotlib.figure import Figure
+from gi.repository import Gtk
 import gi
 gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk
-from matplotlib.figure import Figure
-from matplotlib.backends.backend_gtk3agg import FigureCanvasGTK3Agg as FigureCanvas
-from matplotlib.backends.backend_gtk3 import NavigationToolbar2GTK3 as NavigationToolbar
 # from matplotlib.widgets import Cursor
-import sys
-import os
-import subprocess as sub
-from .version import VERSION, COPYRIGHT
-from .tof import ToF
-from .nist_elem import analyze_substance
+# import os
 
-default_conffile = os.path.join(os.path.dirname(__file__), 'tof.conf')
+# default_conffile = os.path.join(os.path.dirname(__file__), 'tof.conf')
+default_conffile = Path(__file__).resolve().parent / 'tof.conf'
 
 
 class tof_gtk:
@@ -41,13 +44,15 @@ class tof_gtk:
     # use GtkBuilder to build our interface from the XML file
     try:
       builder = Gtk.Builder()
-      interface = os.path.join(os.path.dirname(os.path.realpath(__file__)), "tof_gtk.xml")
+      fnint = "tof_gtk.ui"
+      interface = str(Path(__file__).resolve().parent / fnint)
       builder.add_from_file(interface)
-    except BaseException:
-      self._message("Failed to load UI XML file: tof_gtk.xml")
+    except BaseException as error:
+      self._message(f"{error}.\n\n Failed to load UI XML file: {fnint}")
       sys.exit(1)
 
-    if conffile is None: conffile = default_conffile
+    if conffile is None:
+      conffile = default_conffile
     self.masses = self.init_calc(conffile)
     self.init_gui(builder)
     self.init_graph()
@@ -126,10 +131,14 @@ class tof_gtk:
     self.sbLr.set_value(self.tof.ds * 10)
     self.enNp.set_text(str(self.tof.Npoints * 1.e-6))
     self.entp.set_text(str(self.tof.timeprec * 1.e3))
-    if self.tof.tdist.lower() == 'normal': self.cmLt.set_active(0)
-    else: self.cmLt.set_active(1)
-    if self.tof.posdist.lower() == 'normal': self.cmLr.set_active(0)
-    else: self.cmLr.set_active(1)
+    if self.tof.tdist.lower() == 'normal':
+      self.cmLt.set_active(0)
+    else:
+      self.cmLt.set_active(1)
+    if self.tof.posdist.lower() == 'normal':
+      self.cmLr.set_active(0)
+    else:
+      self.cmLr.set_active(1)
 
   def update_display_mass(self):
     self.lm.clear()
@@ -245,11 +254,12 @@ class tof_gtk:
     """Open the pdf file.
     TODO: Change to html documentation, possibly online
     """
-    pdfteoria = os.path.join(os.path.dirname(__file__), 'tof_teoria.pdf')
+    pdfteoria = Path(__file__).resolve().parent / 'tof_teoria.pdf'
     viewers = ['evince', 'okular', 'acrobat']
     for v in viewers:
       status = sub.call([v, pdfteoria])
-      if status == 0: return 0
+      if status == 0:
+        return 0
 
   # Save configuration (File -> Save)
   def on_save_activate(self, menuitem):
@@ -269,7 +279,8 @@ class tof_gtk:
                                 (Gtk.STOCK_CANCEL, Gtk.ResponseType.CANCEL,
                                  Gtk.STOCK_SAVE, Gtk.ResponseType.OK))
     response = fcd.run()
-    if response == Gtk.ResponseType.OK: self.tof.save_data((fcd.get_filename()))
+    if response == Gtk.ResponseType.OK:
+      self.tof.save_data((fcd.get_filename()))
     fcd.destroy()
 
   # Load configuration (File -> Open)
@@ -316,12 +327,6 @@ class tof_gtk:
       self.popup_menu.popup(None, None, None, None, event.button, time)
 
   def on_addrow_activate(self, menuitem):
-    # selection = self.tv.get_selection()
-    # model, pathlist= selection.get_selected_rows()
-    # if pathlist != []:
-    #   j  = model.get_iter(pathlist[-1])
-    #   self.lm.insert_after(j)
-    # else:
     self.add_rows(1, -1)
 
   def on_butAdd_clicked(self, menuitem):
@@ -370,8 +375,10 @@ class tof_gtk:
     self.tof.ds = self.sbLr.get_value() * 0.1
     self.tof.dt = self.sbLt.get_value() * 1.e-3
 
-    if self.swupd.get_active(): self.tof.Npoints = self.Npoints_fast
-    else: self.tof.Npoints = int(float(self.enNp.get_text()) * 1000000)
+    if self.swupd.get_active():
+      self.tof.Npoints = self.Npoints_fast
+    else:
+      self.tof.Npoints = int(float(self.enNp.get_text()) * 1000000)
 
     self.tof.timeprec = float(self.entp.get_text()) * 1.e-3
 
@@ -405,8 +412,10 @@ class tof_gtk:
     m = {}
     for label, Mass, Pobl in self.lm:
       if label.strip() != '':
-        if label in self.masses: LL = self.masses[label].get('L', label)
-        else: LL = label
+        if label in self.masses:
+          LL = self.masses[label].get('L', label)
+        else:
+          LL = label
 
         m[label] = {'M': Mass, 'P': Pobl, 'L': LL}
     if m != {}:
@@ -422,8 +431,8 @@ class tof_gtk:
 
 if __name__ == "__main__":
   import argparse
-  from version import VERSION
-  default_conffile = os.path.join(os.path.dirname(__file__), 'tof.conf')
+  # from version import VERSION
+  default_conffile = Path(__file__).resolve().parent / 'tof.conf'
   parser = argparse.ArgumentParser(
       description=u'"Simulación de la señal obtenida en el tiempo de vuelo"')
 
