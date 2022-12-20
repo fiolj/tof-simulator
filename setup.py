@@ -29,7 +29,7 @@ def setup_package():
         author="Juan Fiol",
         author_email="juanfiol@gmail.com",
         packages=['tofsim'],
-        package_data={'tofsim': ['tof_gtk.xml', 'tof.conf', 'tof_teoria.pdf', 'nist_data.txt'],
+        package_data={'tofsim': ['tof_gtk.ui', 'tof.conf', 'tof_teoria.pdf', 'nist_data.txt'],
                       },
         data_files=[('share/applications', ['tof_gtk.desktop']),
                     ],
