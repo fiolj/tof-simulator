@@ -21,7 +21,7 @@ from .tof import ToF
 from .version import VERSION, COPYRIGHT
 import subprocess as sub
 from pathlib import Path
-# import os
+
 import sys
 from matplotlib.backends.backend_gtk3 import NavigationToolbar2GTK3 as NavigationToolbar
 from matplotlib.backends.backend_gtk3agg import FigureCanvasGTK3Agg as FigureCanvas
