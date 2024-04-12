@@ -21,7 +21,7 @@ from .tof import ToF
 from .version import VERSION, COPYRIGHT
 import subprocess as sub
 from pathlib import Path
-# import os
+
 import sys
 from matplotlib.backends.backend_gtk3 import NavigationToolbar2GTK3 as NavigationToolbar
 from matplotlib.backends.backend_gtk3agg import FigureCanvasGTK3Agg as FigureCanvas
@@ -30,7 +30,7 @@ from gi.repository import Gtk
 import gi
 gi.require_version('Gtk', '3.0')
 # from matplotlib.widgets import Cursor
-# import os
+
 
 # default_conffile = os.path.join(os.path.dirname(__file__), 'tof.conf')
 default_conffile = Path(__file__).resolve().parent / 'tof.conf'
