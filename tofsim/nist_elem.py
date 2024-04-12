@@ -23,11 +23,14 @@ import itertools
 import collections as col
 import numpy as np
 from sys import stdout
-from configparser import SafeConfigParser
+from configparser import ConfigParser
 
 
 try:
-  datafile = os.path.join(os.path.dirname(os.path.realpath(__file__)), "nist_data.txt")
+  datafile = os.path.join(
+      os.path.dirname(
+          os.path.realpath(__file__)),
+      "nist_data.txt")
 except BaseException:
   datafile = 'nist_data.txt'
 
@@ -38,13 +41,6 @@ if not os.path.exists(datafile):
   print("data file {} not found".format(datafile))
 
 __NIST_ELEMENTS__ = {}
-
-
-# def _is_scalar_or_string(val):
-#   """Return whether the given object is a scalar or string like.
-#   *copied from matplotlib.cbook*
-#   """
-#   return isinstance(val, str) or not np.iterable(val)
 
 
 def _flatten(seq):
@@ -90,11 +86,14 @@ def read_nist_data(threshold=0):
         end = True
         break
       v = line.split('=')[1].strip()
-      if v == '': v = '0'
+      if v == '':
+        v = '0'
       m[f] = v
 
-    if fi.readline().strip() != '': print('warning, se supone que estaba vacia')
-    if end: break
+    if fi.readline().strip() != '':
+      print('warning, should be empty')
+    if end:
+      break
 
     P = float(m['P'].split('(')[0])
     if P >= threshold:
@@ -125,9 +124,9 @@ def mass2conf(masses):
   """
   s = ""
   for l, m in masses.items():
-    s += "[{}]\n".format(l)
+    s += f"[{l}]\n"
     for k, v in m.items():
-      s += "{0}={1}\n".format(k, v)
+      s += f"{k}={v}\n"
     s += '\n'
   return s
 
@@ -145,7 +144,8 @@ def loadmass(fname):
   dict
     a dictionary with the elements read
   """
-  parser = SafeConfigParser(); parser.optionxform = str
+  parser = ConfigParser()
+  parser.optionxform = str
   parser.read(fname)
   sections = parser.sections()
   m = {}
@@ -172,7 +172,7 @@ def make_label(ss, fmt='key'):
         'key'         -> "14N2"
         'Latex'       -> "$^{14}N_{2}$"
         'latexsimple' -> "$N_{2}$"
-        'latexdoc'    -> r"\ce{^{14}N_{2}}"
+        'latexdoc'    -> r"\\ce{^{14}N_{2}}"
         'mass'        -> "28"
 
   """
@@ -187,8 +187,10 @@ def make_label(ss, fmt='key'):
       else:
         label += r' ^{{{0}}}{1}{2}'.format(k[0], k[1], v)
 
-    if k[2] == 1: label += '^{+}'
-    elif k[2] > 1: label += '^{{{0}+}}'.format(k[2])
+    if k[2] == 1:
+      label += '^{+}'
+    elif k[2] > 1:
+      label += '^{{{0}+}}'.format(k[2])
     label += '}'
 
   elif fmt.lower() == 'latex':
@@ -198,8 +200,10 @@ def make_label(ss, fmt='key'):
         label += r'^{{{0}}}\mathrm{{{1}}}'.format(k[0], k[1])
       else:
         label += r'^{{{0}}}\mathrm{{{1}}}_{{{2}}}'.format(k[0], k[1], v)
-    if k[2] == 1: label += '^{+}'
-    elif k[2] > 1: label += '^{{{0}+}}'.format(k[2])
+    if k[2] == 1:
+      label += '^{+}'
+    elif k[2] > 1:
+      label += '^{{{0}+}}'.format(k[2])
     label += '$'
 
   elif fmt.lower() == 'latexsimple':
@@ -209,8 +213,10 @@ def make_label(ss, fmt='key'):
         label += r'\mathrm{{{0}}}'.format(k[1], v)
       else:
         label += r'\mathrm{{{0}}}_{{{1}}}'.format(k[1], v)
-    if k[2] == 1: label += '^{+}'
-    elif k[2] > 1: label += '^{{{0}+}}'.format(k[2])
+    if k[2] == 1:
+      label += '^{+}'
+    elif k[2] > 1:
+      label += '^{{{0}+}}'.format(k[2])
     label += '$'
 
   elif fmt.lower() == 'mass':
@@ -252,9 +258,12 @@ def _splitelement(subst):
     if len(elemx) == 1:
       elem, X = elemx[0], 1
     else:
-      elem = elemx[0]; X = int(elemx[1])
-    if elem in componentes: componentes[elem] += X
-    else: componentes[elem] = X
+      elem = elemx[0]
+      X = int(elemx[1])
+    if elem in componentes:
+      componentes[elem] += X
+    else:
+      componentes[elem] = X
   return list(componentes.items())
 
 
@@ -284,7 +293,7 @@ def analyze_substance(subst, threshold=1.e-4, fragments=False, isotopes=True):
   subst: str
     substance to include (H2O, CO, SF6, N2, ...)
   threshold: float
-    Minimum abundance that has to have an isotope to be included
+    Minimum abundance that has to have an isotope in order to be included
   fragments: bool
     If True includes all fragments. For instance from 'CO' -> 'CO', 'C', 'O'
   isotopes: bool
@@ -307,7 +316,8 @@ def analyze_substance(subst, threshold=1.e-4, fragments=False, isotopes=True):
   for e, x in componentes:
     elem = _get_element(e)
     if not isotopes:                        # No analizamos composición isotópica
-      mayor = max(elem, key=lambda x: elem[x]['P'])   # Isotopo de mayor población
+      # Isotopo de mayor población
+      mayor = max(elem, key=lambda x: elem[x]['P'])
       elem = {mayor: elem[mayor]}
 
     m = list(elem.keys())
@@ -349,13 +359,15 @@ def _get_element(*elems):
   elems -- Elemento o elementos a devolver: por ejemplo H, Kr, N, Ne, ...
   """
   global __NIST_ELEMENTS__
-  if __NIST_ELEMENTS__ == {}: read_nist_data()
+  if __NIST_ELEMENTS__ == {}:
+    read_nist_data()
 
   sp = {}
   for elem in elems:
     for k, v in list(__NIST_ELEMENTS__.items()):
       if v['S'] == elem:             # IMPORTANTE:
-        sp[k] = v.copy()              # sin copy() hace una referencia a __NIST_ELEMENTS[k]
+        # sin copy() hace una referencia a __NIST_ELEMENTS[k]
+        sp[k] = v.copy()
   return sp
 
 
@@ -506,7 +518,11 @@ class Sustancias(dict):
 
     for e in elems:
       if e != '':
-        m.update(analyze_substance(e.strip(), threshold=self.thr, isotopes=self.iso))
+        m.update(
+            analyze_substance(
+                e.strip(),
+                threshold=self.thr,
+                isotopes=self.iso))
     self.update(m)
     self.ListItems.extend(list(m.keys()))
     self.sort()
@@ -569,7 +585,8 @@ class Sustancias(dict):
          >>> list(key = lambda x:  x['q'] > 2)     # returns True if charge greater than 2
 
     """
-    if key is None: return self.ListItems
+    if key is None:
+      return self.ListItems
     return [k for k in self.ListItems if key(self[k])]
 
   def sort(self, order=None, reverse=False):
@@ -629,7 +646,7 @@ class Sustancias(dict):
 
         [34S1]
         S=S
-        L=$^{34}\mathrm{S}$
+        L=$^{34}\\mathrm{S}$
         P=4.25
         M=33.9678669
         A=34
@@ -637,7 +654,7 @@ class Sustancias(dict):
 
         [32S1]
         S=S
-        L=$^{32}\mathrm{S}$
+        L=$^{32}\\mathrm{S}$
         P=94.99
         M=31.972071
         A=32
@@ -675,7 +692,8 @@ class Sustancias(dict):
     return lista
 
   def __str__(self):
-    return self.to_table(cols=['l', 'M', 'P'], tablefmt='simple').replace('\n', '\n  ')
+    return self.to_table(cols=['l', 'M', 'P'],
+                         tablefmt='simple').replace('\n', '\n  ')
 
   def to_text(self):
     """Convenience function to format as a simple table
@@ -729,7 +747,8 @@ class Sustancias(dict):
       s = format_listmass(l, header=' '.join(headers))
       return s
 
-    return '\n' + tabulate(l, headers, tablefmt, floatfmt, numalign, stralign, missingval)
+    return '\n' + tabulate(l, headers, tablefmt, floatfmt,
+                           numalign, stralign, missingval)
 
   def to_latex(self, cols=None, headers=None, standalone=False):
     """Convert to LaTeX table using tabulate package
@@ -745,8 +764,10 @@ class Sustancias(dict):
 
     """
     if standalone:
-      if len(self) < 32: fontsize = r'\large'
-      else: fontsize = ''
+      if len(self) < 32:
+        fontsize = r'\large'
+      else:
+        fontsize = ''
       head = r"""\documentclass[a4paper,12pt]{article}
 \usepackage[version=4]{mhchem}
 \usepackage[table]{xcolor}
@@ -767,11 +788,15 @@ class Sustancias(dict):
       foot = ""
 
     formato = 'latex_raw'
-    if cols is None: cols = ['L', 'M', 'P']
-    if headers is None: headers = cols
-    return head + self.to_table(cols=cols, headers=headers, tablefmt=formato) + foot
+    if cols is None:
+      cols = ['L', 'M', 'P']
+    if headers is None:
+      headers = cols
+    return head + self.to_table(cols=cols,
+                                headers=headers, tablefmt=formato) + foot
 
-  def to_pdf(self, cols=None, headers=None, latexcommand='pdflatex', output='tmp.pdf'):
+  def to_pdf(self, cols=None, headers=None,
+             latexcommand='pdflatex', output='tmp.pdf'):
     """Convert to pdf format using latex.
 
     Export to a latex file and compiles it.
@@ -803,7 +828,12 @@ class Sustancias(dict):
       ret = sub.call(cmd, shell=True, stdout=sub.PIPE, stderr=sub.PIPE)
 
       try:                      # Clean-up intermediate files
-        sub.call('latexmk -c ' + texfile.name, shell=True, stdout=sub.PIPE, stderr=sub.PIPE)
+        sub.call(
+            'latexmk -c ' +
+            texfile.name,
+            shell=True,
+            stdout=sub.PIPE,
+            stderr=sub.PIPE)
       finally:
         pass
     return ret

@@ -6,9 +6,12 @@ import matplotlib.pyplot as plt
 from tabulate import tabulate
 
 # Create the TOF with all isotopes from Xe, Ar and Kr
-T = ToF('Xe,Ar,Kr')
+T = ToF('Li, Ar')
+
 T.Vs = 120                      # Extraction voltaje
 T.Vd = 3000                     # Acceleration voltaje
+
+
 T.signal()                      # Make the spectra
 
 p = T.get_statistics_peaks()    # Get the peaks
