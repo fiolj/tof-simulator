@@ -534,12 +534,11 @@ Construction parameters:
         #     v_s = v_0 + a_s * t_p
         #     Ts = coef * (self.s + 0.5 * a_s * t_p**2) / v_s
 
-
         a_d = self.Ed
         if a_d > 1.e-25:
             Td = coef / (a_d) * (-v_s + np.sqrt(np.square(v_s) + (2 * a_d * self.d)))
         else:
-            Td = coef * self.d / v_s
+            Td = coef *  v_s / (a_d**2 * self.d )
 
         v_d = v_s + a_d * Td
         TD = coef * self.D / v_d
