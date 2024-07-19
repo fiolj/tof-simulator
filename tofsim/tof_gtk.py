@@ -169,7 +169,9 @@ class tof_gtk:
     self.canvas.set_size_request(400, 400)
     self.sw1.add_with_viewport(self.canvas)
 
-    toolbar = NavigationToolbar(self.canvas, self.mw)
+    # JF: There was a change in NavigationToolbar2GTK3 ?
+    # toolbar = NavigationToolbar(self.canvas, self.mw)
+    toolbar = NavigationToolbar(self.canvas)
     self.sw2.add_with_viewport(toolbar)
 
   def graph(self):
