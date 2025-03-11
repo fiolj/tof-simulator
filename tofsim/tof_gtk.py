@@ -232,12 +232,12 @@ class tof_gtk:
       self.update_plot()
 
   def on_about_activate(self, menuitem):
-    authors = ["Juan Fiol - para LASIE"]
+    authors = ["Juan Fiol"]
     ad = Gtk.AboutDialog()
     ad.set_transient_for(self.mw)
     ad.set_destroy_with_parent(True)
     ad.set_program_name(u"Simulación de TOF - Version {}".format(VERSION))
-    ad.set_copyright("Copyright 2020 Juan Fiol\n" + COPYRIGHT)
+    ad.set_copyright("Copyright 2020-{} Juan Fiol\n" + COPYRIGHT)
     ad.set_comments(u"Time-of-flight mass spectrometer simulator")
     ad.set_authors(authors)
     ad.set_logo_icon_name(Gtk.STOCK_EXECUTE)
@@ -248,6 +248,7 @@ class tof_gtk:
 
     def delete_event(dialog, event, editor):
       return True
+
     ad.connect("response", close, self)
     ad.connect("delete-event", delete_event, self)
     ad.show()

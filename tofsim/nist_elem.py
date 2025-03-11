@@ -284,6 +284,12 @@ def _splitcharge(subst):
   return subst.strip(), carga
 
 
+def _get_isotopes(subst):
+  "Split in isotope number and Symbol"
+  m = re.search('(\\d{0,3})([A-Z][a-z0-9]+)', subst)
+  return m.groups()
+
+
 def analyze_substance(subst, threshold=1.e-4, fragments=False, isotopes=True):
   """Devuelve todas las combinaciones con posibles isotopos (y su poblacion)
   de la sustancia con la formula dada.
@@ -527,6 +533,43 @@ class Sustancias(dict):
     self.ListItems.extend(list(m.keys()))
     self.sort()
 
+  # def remove(self, sustancias, criteria='fragment'):
+  #   """Remove a fragment
+
+  #   Parameters
+  #   ----------
+  #   sustancias: str or list of strings
+  #     substance or fragment to remove
+
+  #   criteria: str (NOT USED)
+  #     either 'fragment' (the default value) or 'substance':
+
+  #   sustancias will be a string with (possibly) comma separated list of isotopes, atoms, molecules or ions
+  #   Each element will have one of the following forms
+  #   - 1.  38Ar^{2+}, 169Yb^+,  Removes exactly the fragment given
+  #   - 1.  Ar^{2+}, SF6^++, Yb+,  Removes all the isotopes of the given ion
+  #   - 2.  Ar, SF6, Yb, Remove all fragments independently of the charge and isotopes
+  #   """
+  #   reiso = re.compile('(\\d{0,3})([A-Z][a-z])[_^]?\{?\d[+]?\}?')
+  #   elems = sustancias.replace(' ', '').split(',')
+
+  #   for_removal = []
+  #   for e in elems:
+  #     if e.strip() != '':
+  #       ee, q = _splitcharge(e)
+  #       print(f"{ee=},  {q=}")
+  #       m = reiso.search(ee)
+  #       print(f"{m.groups()=}")
+  #       if m:
+  #         iso, elem = m.groups()
+  #       for k in self:          # Listamos los que vamos a remover
+  #         if (iso == '' or iso == self[k]['A']) and (q == 0 or q == self[k]['q']):
+  #           for_removal.append(k)
+  #   print(for_removal)
+  #   for k in for_removal:  # Ahora lo removemos
+  #     self.ListItems.remove(k)
+  #     self.pop(k)
+
   def remove(self, sustancias, criteria='fragment'):
     """Remove a fragment
 
@@ -537,23 +580,26 @@ class Sustancias(dict):
     criteria: str
       either 'fragment' (the default value) or 'substance':
 
-
     For the choices of 'criteria', we use:
 
+    - 'key': e.g:  '19F6-32S^{+}' removes exactly the ion given
     - 'fragment': e.g:  Ar^{2+}, SF6^++,  Removes exactly the fragment given
-    - 'substance': e.g:  Ar, SF6, Xe, Remove all fragments with independently of the charge
+    - 'substance': e.g:  Ar, SF6, Xe, Remove all fragments independently of the charge
     """
 
     if criteria == 'key':
-      for_removal = sustancias
+      if isinstance(sustancias, str):
+        for_removal = [sustancias]
+      else:
+        for_removal = sustancias
     else:
       if isinstance(sustancias, str):
         elems = sustancias.split(',')
       else:
         elems = sustancias
-      for e in elems:
-        for_removal = []
 
+      for_removal = []
+      for e in elems:
         if e.strip() != '':
           ee, q = _splitcharge(e)
           for k in self:          # Listamos los que vamos a remover
@@ -563,7 +609,7 @@ class Sustancias(dict):
               remover = (ee == self[k]['S'] and q == self[k]['q'])
             if remover:
               for_removal.append(k)
-
+    print(f"{for_removal=}")
     for k in for_removal:  # Ahora lo removemos
       self.ListItems.remove(k)
       self.pop(k)
