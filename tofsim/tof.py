@@ -605,6 +605,7 @@ Construction parameters:
       - show_grid = `True/False`             : if `True` -> Negative signal
       - graph_all=`True/False` (or show_all): if `True` -> Plot individual species
       - show_legend=`True/False`            : if `True` -> Show the legend
+      - show_title=`True/False`            : if `True` -> Show info in the title
 
     """
     try:
@@ -617,6 +618,7 @@ Construction parameters:
       especies = self.fragments
     negative = kvars.get('negative', False)
     show_grid = kvars.get('show_grid', False)
+    show_title = kvars.get('show_title', False)
     graph_all = kvars.get('graph_all', kvars.get('show_all', False))
     if 'show_legend' in kvars:
       show_legend = kvars['show_legend']
@@ -670,10 +672,11 @@ Construction parameters:
       ax.legend(loc='best', title='$T={0}^{{\\circ}}K$'.format(
           self.Temperature), framealpha=0.5, ncol=ncol)
 
-    legtitle = 'Parámetros del TOF\n'
-    for k, val in self.get_tof_parameters().items():
-      legtitle += r'${0}={1:.2f}$  '.format(k, val)
-    ax.set_title(legtitle)
+    if show_title:
+      legtitle = 'Parámetros del TOF\n'
+      for k, val in self.get_tof_parameters().items():
+        legtitle += r'${0}={1:.2f}$  '.format(k, val)
+      ax.set_title(legtitle)
 
     ax.grid(visible=show_grid)
     if fname is not None:

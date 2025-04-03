@@ -521,16 +521,15 @@ class Sustancias(dict):
       elems = sustancias.split(',')
     else:
       elems = sustancias
-
     for e in elems:
       if e != '':
-        m.update(
-            analyze_substance(
-                e.strip(),
-                threshold=self.thr,
-                isotopes=self.iso))
+        newm = analyze_substance(e.strip(), threshold=self.thr, isotopes=self.iso)
+        m.update(newm)
+
     self.update(m)
-    self.ListItems.extend(list(m.keys()))
+    for new in m:
+      if new not in self.ListItems:
+        self.ListItems.append(new)
     self.sort()
 
   # def remove(self, sustancias, criteria='fragment'):
@@ -585,6 +584,9 @@ class Sustancias(dict):
     - 'key': e.g:  '19F6-32S^{+}' removes exactly the ion given
     - 'fragment': e.g:  Ar^{2+}, SF6^++,  Removes exactly the fragment given
     - 'substance': e.g:  Ar, SF6, Xe, Remove all fragments independently of the charge
+
+    NOTE  This Routine Needs Rewriting
+    ----
     """
 
     if criteria == 'key':
@@ -609,7 +611,7 @@ class Sustancias(dict):
               remover = (ee == self[k]['S'] and q == self[k]['q'])
             if remover:
               for_removal.append(k)
-    print(f"{for_removal=}")
+    # print(f"{for_removal=}")
     for k in for_removal:  # Ahora lo removemos
       self.ListItems.remove(k)
       self.pop(k)
