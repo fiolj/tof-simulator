@@ -449,7 +449,9 @@ class Sustancias(dict):
 
   """
 
-  _columns = 'ALMPSZ'
+  _columns = 'ALMPSZq'
+
+  _default_values = {'A': 1, 'S': 'XXX', 'L': '', 'M': 1, 'P': 0.5, 'Z': 1, 'q': 1}
 
   _fields = [('Z', 'Atomic Number'), ('S', 'Atomic Symbol'),
              ('A', 'Mass Number'),
@@ -518,7 +520,12 @@ class Sustancias(dict):
     """
 
     if isinstance(sustancias, dict):
-      m = sustancias
+      m = {}
+      for label in sustancias:
+        for k in self._columns:  # Agregamos datos si no estaban presentes
+          if k not in sustancias[label]:
+            sustancias[label][k] = self._default_values[k]
+        m[label] = sustancias[label]
     else:
       m = {}
       if isinstance(sustancias, str):
@@ -658,8 +665,8 @@ class Sustancias(dict):
       order = self._sortorder
     else:
       self._sortorder = order
-    if order not in self._columns + 'q':
-      print('Sort order must be one of {}'.format(self._columns + 'q'))
+    if order not in self._columns:
+      print('Sort order must be one of {}'.format(self._columns))
       return
 
     lista = [(k, self[k]) for k in self.ListItems]  # Get in order

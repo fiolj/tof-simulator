@@ -644,7 +644,7 @@ Construction parameters:
 
       Labels.append((l, pico))
       if graph_all:
-        ax.plot(self.times['time'], signo * self.times[k], lw=3, label=l)
+        ax.plot(self.times['time'], signo * self.times[k], lw=4, label=l)
 
     y = signo * np.array(self.times['signal'])
 
@@ -671,13 +671,13 @@ Construction parameters:
 
     ax.set_xlabel(r" $t(\mu s)$", fontsize="x-large")
     ax.set_ylabel(r"$\rho(t)$", fontsize='x-large')
-    ncol = (len(list(especies.keys())) - 2) // 6 + 1
+    ncol = max((len(list(especies.keys())) - 2) // 6 + 1, 1)
     if show_legend:
       ax.legend(loc='best', title='$T={0}^{{\\circ}}K$'.format(
           self.Temperature), framealpha=0.5, ncol=ncol)
 
     if show_title:
-      legtitle = 'Parámetros del TOF\n'
+      legtitle = 'TOF parameters\n'
       for k, val in self.get_tof_parameters().items():
         legtitle += r'${0}={1:.2f}$  '.format(k, val)
       ax.set_title(legtitle)
