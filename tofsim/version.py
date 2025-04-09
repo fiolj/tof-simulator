@@ -1,4 +1,4 @@
-VERSION = '3.05'
+__version__ = '4.0'
 
 COPYRIGHT = """
 This program is free software: you can redistribute it and/or modify

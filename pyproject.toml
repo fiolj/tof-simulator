@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tofsim"
+dynamic = ["version"]
+authors = [
+  { name="Juan Fiol", email="juanfiol@gmail.com" },
+]
+description="Time-of-Flight Mass spectrometry simulator"
+readme = "README.rst"
+requires-python = ">3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+license = "GPL-3.0-or-later"
+# license-files = ["LICEN[CS]E*"]
+keywords=["simulation","mass-spectrometry","TOF"]
+
+dependencies = [
+    "numpy",
+    "matplotlib",
+    "tabulate"
+]
+
+[project.urls]
+Homepage = "https://github.com/fiolj/tof-simulator"
+Issues = "https://github.com/fiolj/tof-simulator/issues"
+
+
+[project.optional-dependencies]
+gtk = ["pycairo","PyGObject"]
+stl = ["streamlit"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+[tool.setuptools.package-data]
+tofsim = ["*.txt", "*.rst","gtk/tof_gtk.ui", "tof.conf"]
+
+[tool.setuptools.dynamic]
+version = {attr = "tofsim.version.__version__"}
+
+[project.gui-scripts]
+tof_gtk = "tofsim.gtk.tof_gtk:main"
+tof_stl = "tofsim.stl.app:run_app"
+

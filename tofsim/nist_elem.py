@@ -338,8 +338,8 @@ def analyze_substance(subst, threshold=1.e-4, fragments=False, isotopes=True):
   for k in itertools.product(*combinaciones):
     ll = [(elementos[s]['A'], elementos[s]['S'], carga) for s in _flatten(k)]
     label = make_label(ll)
-    P = np.product(np.array([elementos[s]['P'] for s in _flatten(k)]))
-    P *= np.product(np.array([multiplicidad[k[j]] for j in range(len(k))]))
+    P = np.prod(np.array([elementos[s]['P'] for s in _flatten(k)]))
+    P *= np.prod(np.array([multiplicidad[k[j]] for j in range(len(k))]))
 
     sustancia[label] = {'S': subst,
                         'M': np.sum(np.array([elementos[s]['M'] for s in _flatten(k)])),

@@ -14,7 +14,10 @@
 # You should have received a copy of the GNU General Public License
 # along with tof-simulator.  If not, see <https://www.gnu.org/licenses/>.
 
-__all__ = ["tof", "tof_gtk", "nist_elem"]
+__all__ = ["tof", "nist_elem", "gtk", "stl"]
 
+from .version import __version__
 from .nist_elem import Sustancias, analyze_substance, mass2conf
 from .tof import ToF
+from .stl import app
+# from .gtk import tof_gtk

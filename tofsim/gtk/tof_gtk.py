@@ -16,9 +16,9 @@
 # You should have received a copy of the GNU General Public License
 # along with tof-simulator.  If not, see <https://www.gnu.org/licenses/>.
 
-from .nist_elem import analyze_substance
-from .tof import ToF
-from .version import VERSION, COPYRIGHT
+from ..nist_elem import analyze_substance
+from ..tof import ToF
+from ..version import __version__, COPYRIGHT
 import subprocess as sub
 from pathlib import Path
 
@@ -33,7 +33,7 @@ gi.require_version('Gtk', '3.0')
 
 
 # default_conffile = os.path.join(os.path.dirname(__file__), 'tof.conf')
-default_conffile = Path(__file__).resolve().parent / 'tof.conf'
+default_conffile = Path(__file__).resolve().parent.parent / 'tof.conf'
 
 
 class tof_gtk:
@@ -236,8 +236,8 @@ class tof_gtk:
     ad = Gtk.AboutDialog()
     ad.set_transient_for(self.mw)
     ad.set_destroy_with_parent(True)
-    ad.set_program_name(u"Simulación de TOF - Version {}".format(VERSION))
-    ad.set_copyright("Copyright 2020-{} Juan Fiol\n" + COPYRIGHT)
+    ad.set_program_name(f"Simulación de TOF - Version {__version__}")
+    ad.set_copyright(f"Copyright 2020- {authors[0]}\n {COPYRIGHT}")
     ad.set_comments(u"Time-of-flight mass spectrometer simulator")
     ad.set_authors(authors)
     ad.set_logo_icon_name(Gtk.STOCK_EXECUTE)
@@ -432,15 +432,22 @@ class tof_gtk:
     Gtk.main()
 
 
+def main(conffile=None):
+  localconf = Path().cwd() / 'tof.conf'
+  if conffile is None:
+    conffile = localconf if localconf.exists() else default_conffile
+  TOF_w1 = tof_gtk(conffile)
+  TOF_w1.main()
+
+
 if __name__ == "__main__":
   import argparse
-  # from version import VERSION
-  default_conffile = Path(__file__).resolve().parent / 'tof.conf'
+  # default_conffile = Path(__file__).resolve().parent / 'tof.conf'
   parser = argparse.ArgumentParser(
       description=u'"Simulación de la señal obtenida en el tiempo de vuelo"')
 
   parser.add_argument('-V', '--version', action='version',
-                      version='%(prog)s version {}'.format(VERSION))
+                      version='%(prog)s version {}'.format(__version__))
   parser.add_argument(
       "-c",
       "--conf",
