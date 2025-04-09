@@ -17,7 +17,7 @@
 # along with tof-simulator.  If not, see <https://www.gnu.org/licenses/>.
 
 from ..nist_elem import analyze_substance
-from ..tof import ToF
+from ..tof import ToF, _conffile
 from ..version import __version__, COPYRIGHT
 import subprocess as sub
 from pathlib import Path
@@ -32,8 +32,8 @@ gi.require_version('Gtk', '3.0')
 # from matplotlib.widgets import Cursor
 
 
-# default_conffile = os.path.join(os.path.dirname(__file__), 'tof.conf')
-default_conffile = Path(__file__).resolve().parent.parent / 'tof.conf'
+# # default_conffile = os.path.join(os.path.dirname(__file__), 'tof.conf')
+# default_conffile = Path(__file__).resolve().parent.parent / 'tof.conf'
 
 
 class tof_gtk:
@@ -52,7 +52,7 @@ class tof_gtk:
       sys.exit(1)
 
     if conffile is None:
-      conffile = default_conffile
+      conffile = _conffile
     self.masses = self.init_calc(conffile)
     self.init_gui(builder)
     self.init_graph()
@@ -433,9 +433,6 @@ class tof_gtk:
 
 
 def main(conffile=None):
-  localconf = Path().cwd() / 'tof.conf'
-  if conffile is None:
-    conffile = localconf if localconf.exists() else default_conffile
   TOF_w1 = tof_gtk(conffile)
   TOF_w1.main()
 
@@ -451,7 +448,7 @@ if __name__ == "__main__":
   parser.add_argument(
       "-c",
       "--conf",
-      default=default_conffile,
+      default=_conffile,
       metavar='File',
       help="Configuration file to load")
 

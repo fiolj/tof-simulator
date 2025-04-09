@@ -17,9 +17,10 @@
 import numpy as np
 from math import sqrt
 from configparser import ConfigParser
-import os
+from pathlib import Path
 from .nist_elem import Sustancias
 
+_default_conffile = Path(__file__).resolve().parent / 'tof.conf'
 
 _tof_esquema = r"""
 Diagram of TOF
@@ -58,9 +59,8 @@ _default_conditions = {
     'v_inicial': 0.          # Velocidad de grupo del gas en sqrt(2*eV)
 }
 
-_default_conffile = os.path.join(os.path.dirname(__file__), 'tof.conf')
-if not os.path.exists(_default_conffile):
-  _default_conffile = 'tof.conf'
+localconf = Path().cwd() / 'tof.conf'
+_conffile = localconf if localconf.exists() else _default_conffile
 
 
 def _get_nearest(x, x0):
@@ -211,7 +211,7 @@ class ToF(object):
     self.__dict__.update(_default_param)
     self.__dict__.update(_default_conditions)
 
-    self.load_conf_file(_default_conffile)
+    masas = self.load_conf_file(_conffile)
     # Then, process input (overwrite default)
     self.__dict__.update(kwds)
     self.times = None
@@ -258,7 +258,7 @@ class ToF(object):
     if fname is None:
       return None
 
-    if not os.path.exists(fname):
+    if not Path(fname).exists():
       self._message('Configuration file {0} does not exist'.format(fname))
       return None
 

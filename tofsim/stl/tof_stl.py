@@ -18,8 +18,8 @@
 
 # from tof.nist_elem import analyze_substance
 from matplotlib.figure import Figure
-from tofsim.tof import ToF
-# from .version import VERSION, COPYRIGHT
+from ..tof import ToF, _conffile
+# from tofsim.tof import ToF
 import subprocess as sub
 from pathlib import Path
 
@@ -39,7 +39,8 @@ mpl.use("agg")
 # from matplotlib.backends.backend_agg import RendererAgg
 # _lock = RendererAgg.lock
 
-conffile = Path().cwd() / 'tof.conf'
+# default_conffile = Path(__file__).resolve().parent.parent / 'tof.conf'
+
 
 # -- Set page config
 apptitle = 'TOF Simulator'
@@ -66,9 +67,10 @@ negative = False
 @st.cache_resource
 def create_ToF():
   T = ToF()
+  conffile = _conffile
   if conffile.exists():
     print(f"Loading configuration from {conffile.name}")
-    T.load_conf_file(conffile)
+    masas = T.load_conf_file(conffile)
   T.fragments.thr = 0.015
   T.add_substances('Yb', T.fragments.thr)
   return T
