@@ -18,7 +18,8 @@
 
 # from tof.nist_elem import analyze_substance
 from matplotlib.figure import Figure
-from ..tof import ToF, _conffile
+from tofsim.tof import ToF, _conffile
+from tofsim.version import __version__, COPYRIGHT
 # from tofsim.tof import ToF
 import subprocess as sub
 from pathlib import Path
@@ -38,8 +39,6 @@ mpl.use("agg")
 #############################################################################
 # from matplotlib.backends.backend_agg import RendererAgg
 # _lock = RendererAgg.lock
-
-# default_conffile = Path(__file__).resolve().parent.parent / 'tof.conf'
 
 
 # -- Set page config
@@ -65,21 +64,16 @@ negative = False
 
 
 @st.cache_resource
-def create_ToF():
+def create_ToF(conffile=None):
   T = ToF()
-  conffile = _conffile
-  if conffile.exists():
-    print(f"Loading configuration from {conffile.name}")
-    masas = T.load_conf_file(conffile)
   T.fragments.thr = 0.015
-  T.add_substances('Yb', T.fragments.thr)
+  if conffile is not None:
+    T.load_conf_file(conffile)
   return T
-  # return ToF(['Yb'])
 
 
 def delete_selected_masses(frags, rows):
   to_del = [masses[m][0] for m in rows]
-  # print(f"{to_del}")
   for f in to_del:
     frags.remove(f, criteria='key')
 

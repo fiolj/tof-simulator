@@ -220,6 +220,8 @@ class ToF(object):
       self.fragments = Sustancias(substances)
     else:
       self.fragments = Sustancias()
+      if masas:
+        self.add_substances(masas)
 
   def add_substances(self, substances, threshold=1.e-3):
     """Add substances to be simulated.
@@ -305,6 +307,8 @@ class ToF(object):
     for opt in self.adic_parameters:
       parser.set('condition', opt, str(self.__dict__[opt]))
 
+    if not masas:
+      masas = self.fragments
     for m, values in list(masas.items()):
       parser.add_section(m)
       for k, v in list(values.items()):

@@ -32,10 +32,6 @@ gi.require_version('Gtk', '3.0')
 # from matplotlib.widgets import Cursor
 
 
-# # default_conffile = os.path.join(os.path.dirname(__file__), 'tof.conf')
-# default_conffile = Path(__file__).resolve().parent.parent / 'tof.conf'
-
-
 class tof_gtk:
   Npoints_fast = 100000
 
@@ -272,7 +268,7 @@ class tof_gtk:
                                  Gtk.STOCK_SAVE, Gtk.ResponseType.OK))
     response = fcd.run()
     if response == Gtk.ResponseType.OK:
-      self.tof.save_conf_file(fcd.get_filename(), self.masses)
+      self.tof.save_conf_file(fcd.get_filename())
     fcd.destroy()
 
   # Export data
@@ -439,7 +435,6 @@ def main(conffile=None):
 
 if __name__ == "__main__":
   import argparse
-  # default_conffile = Path(__file__).resolve().parent / 'tof.conf'
   parser = argparse.ArgumentParser(
       description=u'"Simulación de la señal obtenida en el tiempo de vuelo"')
 

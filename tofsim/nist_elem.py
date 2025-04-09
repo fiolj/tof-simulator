@@ -516,15 +516,19 @@ class Sustancias(dict):
           m = add('H20,O2,N2,UF5,UF6')
 
     """
-    m = {}
-    if isinstance(sustancias, str):
-      elems = sustancias.split(',')
+
+    if isinstance(sustancias, dict):
+      m = sustancias
     else:
-      elems = sustancias
-    for e in elems:
-      if e != '':
-        newm = analyze_substance(e.strip(), threshold=self.thr, isotopes=self.iso)
-        m.update(newm)
+      m = {}
+      if isinstance(sustancias, str):
+        elems = sustancias.split(',')
+      else:
+        elems = sustancias
+      for e in elems:
+        if e != '':
+          newm = analyze_substance(e.strip(), threshold=self.thr, isotopes=self.iso)
+          m.update(newm)
 
     self.update(m)
     for new in m:
@@ -611,7 +615,6 @@ class Sustancias(dict):
               remover = (ee == self[k]['S'] and q == self[k]['q'])
             if remover:
               for_removal.append(k)
-    # print(f"{for_removal=}")
     for k in for_removal:  # Ahora lo removemos
       self.ListItems.remove(k)
       self.pop(k)
