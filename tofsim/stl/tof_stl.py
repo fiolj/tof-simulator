@@ -72,12 +72,6 @@ def create_ToF(conffile=None):
   return T
 
 
-def delete_selected_masses(frags, rows):
-  to_del = [masses[m][0] for m in rows]
-  for f in to_del:
-    frags.remove(f, criteria='key')
-
-
 def update_plot(Tof, show_grid=False, negative=False, **props):
   Tof.signal()
   propiedades = {'graph_all': True, 'show_grid': show_grid, 'negative': negative}
@@ -137,15 +131,26 @@ st.session_state.in_mass = ""
 frags.add(ms)
 
 
+def delete_selected_masses(frags, rows):
+  to_del = [masses[m][0] for m in rows]
+  for f in to_del:
+    frags.remove(f, criteria='key')
+
+
+def update_data():
+  drows = st.session_state.changes.get('deleted_rows')
+  delete_selected_masses(frags, drows)
+
+
 masses = frags.get_lista(cols=['l', 'M', 'P'])
-masas = st.data_editor(masses, key="changes", num_rows="dynamic",
-                       column_config={'0': 'Label', '1': 'Mass', '2': 'Population'},
-                       )
-
-changes = st.session_state['changes']
+# masas = st.sidebar.data_editor(frags.get_lista(cols=['l', 'M', 'P']),
+masas = st.sidebar.data_editor(masses,
+                               key="changes", num_rows="dynamic", on_change=update_data,
+                               column_config={'0': 'Ion', '1': 'Mass', '2': 'Abundance'},
+                               )
+# changes = st.session_state['changes']
 # print(f"{changes=}")
-delete_selected_masses(frags, changes.get('deleted_rows'))
-
+# print(f"{masas}")
 
 ######################################################################
 if frags:
