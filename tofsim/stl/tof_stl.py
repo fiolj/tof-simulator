@@ -121,7 +121,7 @@ with st.sidebar:
 
   with st.expander("Select Calculation Properties"):
     T.Npoints = int(1.e6*st.number_input('Nº of particles ($10^6$)', 0.1, 5.0, T.Npoints*1.e-6, 0.1))  # min, max, default, step
-    T.timeprec = 1.e-3*st.number_input('Time precision (ns)', 0.1, 5.0, 1.e3*T.timeprec, 0.1)  # min, max, default
+    T.timeprec = 1.e-3*st.number_input('Time precision (ns)', 0.1, 5.0, 1.e3*T.timeprec, 0.1)  # min, max, default, step
     st.session_state.show_grid = st.checkbox("Show Grid")
     st.session_state.negative_signal = st.checkbox("Negative Signal")
 
@@ -143,14 +143,10 @@ def update_data():
 
 
 masses = frags.get_lista(cols=['l', 'M', 'P'])
-# masas = st.sidebar.data_editor(frags.get_lista(cols=['l', 'M', 'P']),
 masas = st.sidebar.data_editor(masses,
                                key="changes", num_rows="dynamic", on_change=update_data,
                                column_config={'0': 'Ion', '1': 'Mass', '2': 'Abundance'},
                                )
-# changes = st.session_state['changes']
-# print(f"{changes=}")
-# print(f"{masas}")
 
 ######################################################################
 if frags:
@@ -159,4 +155,4 @@ if frags:
 
 
 with st.expander("Information"):
-  st.code(f"{T}")
+  st.write(T)
