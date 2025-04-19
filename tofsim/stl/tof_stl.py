@@ -50,9 +50,6 @@ st.set_page_config(page_title=apptitle, page_icon='random',
 # Title the app
 st.title('Time of Flight Simulator')
 
-# st.markdown("""
-#  * Use the menu at left to select data and set plot parameters
-# """)
 
 if "show_grid" not in st.session_state:
   st.session_state.show_grid = False
@@ -78,6 +75,41 @@ def update_plot(Tof, show_grid=False, negative=False, **props):
   propiedades.update(props)
   fig = Tof.make_plot(**propiedades)
   return fig
+
+
+def find_next_name(fname):
+  counter = 0
+  if not Path(fname).exists():
+    return Path(fname)
+
+  fname = Path(fname)
+  fname1 = fname.with_stem(f"{fname.stem}_{counter}")
+  while fname1.exists():
+    counter += 1
+    fname1 = fname.with_stem(f"{fname.stem}_{counter}")
+  return fname1
+
+
+def save_conf(fname):
+  T.save_conf_file(fname)
+
+
+def save_data(fname):
+  T.save_data(fname)
+
+
+def save_plot(fname, bbox_inches='tight'):
+  fig.savefig(fname, bbox_inches=bbox_inches)
+
+
+def menu():
+  c1, c2, c3 = st.columns(3)
+  with c1:
+    st.button("🔧 Save Conf", on_click=save_conf, args=(find_next_name('tof.conf'),))
+  with c2:
+    st.button("💾 Save Data", on_click=save_data, args=(find_next_name('tof_data.dat'),))
+  with c3:
+    st.button("📈 Save Plot", on_click=save_plot, args=(find_next_name('tof_data.png'), 'tight'))
 
 
 def get_parameters(T):
@@ -110,6 +142,7 @@ def submit():
 
 
 with st.sidebar:
+
   get_parameters(T)
 
   # with st.expander("Add Substances"):
@@ -153,6 +186,13 @@ if frags:
   fig = update_plot(T, **{'show_grid': st.session_state.show_grid, 'negative': st.session_state.negative_signal})
   graf = st.pyplot(fig, clear_figure=True, transparent=False)
 
+menu()
+
+with st.expander("Peak information"):
+  df = pd.DataFrame(T.get_statistics_peaks().tolist(),
+                    columns=('Ion', 'indexes', 'position', 'height', 'width')
+                    )
+  st.table(df[['Ion', 'position', 'height', 'width']])
 
 with st.expander("Information"):
   st.write(T)
