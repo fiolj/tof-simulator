@@ -6,9 +6,41 @@ tof-simulator is a package to simulate the spectra from a Time-of-Flight mass sp
 
 It has capabilities to analyze substances from convenient names and may be used as a python module in a script or interactively as a Graphical program.
 
+**********
+Interfaces
+**********
+
+The package may be used in three different forms:
+
+- Python module in a script. Something like:
+
+  ```python
+  from tofsim import ToF
+  # Create the TOF with all isotopes from Ar and Kr
+  T = ToF('Ar','Kr')
+
+  # Adjust the TOF parameters
+  T.Vs = 120                      # Extraction voltaje
+  T.Vd = 3000                     # Acceleration voltaje
+  
+  
+  T.signal()                      # Make the spectra
+  
+  p = T.get_statistics_peaks()    # Get the peaks
+  
+  print(p)                        # Print the peaks
+  ```
+
+- Gtk GUI interface `tof_gtk`
+
+- Web GUI interface `tof_stl`
+  
+
+
 ****
 Demo
 ****
+
 
 - Start the GUI and calculate the spectra
 
@@ -20,22 +52,51 @@ Demo
   .. image:: doc/images/demo2.gif
 
 
+.. note:: See Project page: https://github.com/fiolj/tof-simulator
+
+	  
 
 ************
 Installation
 ************
 
+Library installation
+====================
+
 Install using pip, either system-wide (administrator rights are needed)
 
 ::
 
-   pip install tof-simulator-X.Y.tar.gz
+   pip install tof-simulator
 
 or (usually preferred) for the current user:
 
 ::
 
-   pip install --user tof-simulator-X.Y.tar.gz
+   pip install --user tof-simulator
+
+   
+.. note:: The installation as described above does not include GUI systems, they are optional
+
+Gtk GUI installation
+====================
+
+To install the optional Gtk GUI use:
+
+::
+
+   pip install --user tof-simulator[gtk]
+
+
+Web GUI installation
+====================
+
+The optional Web GUI uses streamlit ( https://streamlit.io/ ), and can be installed as:
+
+::
+
+   pip install --user tof-simulator[stl]
+
 
 
 ************
@@ -47,7 +108,7 @@ Dependencies
   - Only `Numpy <https://numpy.org>`_ is required.
   - Optionally,  `matplotlib <matplotlib.org>`_  is needed to use included capabilities for plotting.
 
-- To use the GUI, the requirements are:
+- To use the Gtk GUI, the requirements are:
 
   - `matplotlib <matplotlib.org>`_
 
@@ -56,6 +117,12 @@ Dependencies
     Information on how to install PyGobject on different platforms may be found in
     `the documentation <https://pygobject.readthedocs.io/en/latest/getting_started.html>`_
 
+- To use the Gtk GUI, the requirements are:
+
+  - `matplotlib <matplotlib.org>`_
+
+  - `streamlit <https://streamlit.io/>`_
+    
 
 *********
 Copyright

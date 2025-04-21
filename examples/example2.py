@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tabulate import tabulate
 
-# Create the TOF with all isotopes from Xe, Ar and Kr
+# Create the TOF with all isotopes from Li, Ar 
 T = ToF('Li, Ar')
 
 T.Vs = 120                      # Extraction voltaje
@@ -22,13 +22,15 @@ print(p)                        # Print the peaks
 headers = ['Fragment'] + p.headers
 print(tabulate(p.tolist(), headers=headers, tablefmt='fancy_grid'))
 
-# Plot the data
-pa = np.asarray(p.tolist())
+# # Plot the data
+# pa = np.asarray(p.tolist())
 
 # We will plot the position and width of each peak as a function of the mass of the fragment:
-x = [T.fragments[k]['M'] for k in pa[:, 0]]
-ypos = pa[:, 2]
-ywidth = pa[:, 4]
+x = [T.fragments[k]['M'] for k in p]
+ypos = [p[k]['position'] for k in p]
+ywidth =  [p[k]['width'] for k in p]
+
+plt.ion()
 
 fig, ax = plt.subplots(nrows=2, sharex=True, figsize=(8, 10))
 ax[0].plot(x, ypos, '-s', label='Peak position')
