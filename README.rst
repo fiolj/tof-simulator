@@ -98,6 +98,30 @@ The optional Web GUI uses streamlit ( https://streamlit.io/ ), and can be instal
    pip install --user tof-simulator[stl]
 
 
+Installation from source
+========================
+
+In order to install from source, you can:
+
+- Clone the project
+  ::
+
+     git clone https://github.com/fiolj/tof-simulator
+
+- Go to the local folder of the project and build the package:
+
+  ::
+
+     cd tof-simulator
+     python3 -m build
+   
+- Install the recently created package
+
+  ::
+
+     pip install --user dist/tofsim-4.0-py3-none-any.whl[gtk,stl]
+
+
 
 ************
 Dependencies

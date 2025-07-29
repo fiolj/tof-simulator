@@ -109,9 +109,8 @@ def get_one_peak(x, y, fwidth=1 / np.e):
   """
   im, xm, ym = _get_peak(x, y)
   yf = fwidth * ym
-  i2p = np.abs(y[im:] - yf).argmin() + im
+  i2p = im + np.abs(y[im:] - yf).argmin()
   i2m = im - np.abs(y[im::-1] - yf).argmin()
-
   return [(i2m, im, i2p), (x[i2m], xm, x[i2p]), (y[i2m], ym, y[i2p])]
 
 
@@ -497,8 +496,11 @@ Construction parameters:
           'index': ind,
           'position': x[1],
           'height': y[1],
-          'width': x[2] - x[0]}
-
+          'width': x[2] - x[0],
+          # 'x': x,
+          # 'y': y
+          }
+      
     return peaks
 
   def time_of_extract(self, x_0, v_0):

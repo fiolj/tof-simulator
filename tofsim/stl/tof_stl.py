@@ -189,10 +189,12 @@ if frags:
 menu()
 
 with st.expander("Peak information"):
-  df = pd.DataFrame(T.get_statistics_peaks().tolist(),
-                    columns=('Ion', 'indexes', 'position', 'height', 'width')
+  dpeak = T.get_statistics_peaks()
+  df = pd.DataFrame(dpeak.tolist(),
+                    columns=('Ion', 'indexes', 'position (µs)', 'height', 'width (ns)')
                     )
-  st.table(df[['Ion', 'position', 'height', 'width']])
+  df['width (ns)']*= 1.e3
+  st.table(df[['Ion', 'position (µs)', 'height', 'width (ns)']])
 
 with st.expander("Information"):
   st.write(T)

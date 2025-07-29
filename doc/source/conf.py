@@ -14,15 +14,14 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('../../'))
 
-
 # -- Project information -----------------------------------------------------
 # The full version, including alpha/beta/rc tags
 
 project = 'TOF-simulator'
-copyright = '2020, Juan Fiol'
+copyright = '2020-, Juan Fiol'
 author = 'Juan Fiol'
 
-VERSION = "3.00"
+VERSION = "4.00"
 release = VERSION
 
 version = 'version: ' + release

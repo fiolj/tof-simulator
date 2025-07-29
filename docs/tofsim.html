@@ -1,180 +1,148 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Package API &mdash; TOF-simulator 3.00 documentation</title>
-  
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Package API &mdash; TOF-simulator 4.00 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=83e35b93" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/rtd_overrides.css?v=5bd222a9" />
 
   
-  
-  
-  
-
-  
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/rtd_overrides.css" type="text/css" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=83c3b362"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Implementation of time-of-flight calculations" href="teoria.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html" class="icon icon-home"> TOF-simulator
           
-
-          
+          <a href="index.html" class="icon icon-home">
+            TOF-simulator
           </a>
-
-          
-            
-            
-              <div class="version">
-                version: 3.00
-              </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#dependencies">Dependencies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interactivo.html">Graphical interface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="teoria.html">Implementation of time-of-flight calculations</a></li>
 </ul>
-<p class="caption"><span class="caption-text">API Docs</span></p>
+<p class="caption" role="heading"><span class="caption-text">API Docs</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Package API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-tofsim.nist_elem">nist_elem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-tofsim.tof">tof</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-tofsim.nist_elem">nist_elem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tofsim.nist_elem.Sustancias"><code class="docutils literal notranslate"><span class="pre">Sustancias</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.nist_elem.Sustancias.add"><code class="docutils literal notranslate"><span class="pre">Sustancias.add()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.nist_elem.Sustancias.copy"><code class="docutils literal notranslate"><span class="pre">Sustancias.copy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.nist_elem.Sustancias.get_lista"><code class="docutils literal notranslate"><span class="pre">Sustancias.get_lista()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.nist_elem.Sustancias.list"><code class="docutils literal notranslate"><span class="pre">Sustancias.list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.nist_elem.Sustancias.loadconf"><code class="docutils literal notranslate"><span class="pre">Sustancias.loadconf()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.nist_elem.Sustancias.remove"><code class="docutils literal notranslate"><span class="pre">Sustancias.remove()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.nist_elem.Sustancias.saveconf"><code class="docutils literal notranslate"><span class="pre">Sustancias.saveconf()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.nist_elem.Sustancias.show_help"><code class="docutils literal notranslate"><span class="pre">Sustancias.show_help()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.nist_elem.Sustancias.sort"><code class="docutils literal notranslate"><span class="pre">Sustancias.sort()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.nist_elem.Sustancias.to_latex"><code class="docutils literal notranslate"><span class="pre">Sustancias.to_latex()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.nist_elem.Sustancias.to_pdf"><code class="docutils literal notranslate"><span class="pre">Sustancias.to_pdf()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.nist_elem.Sustancias.to_table"><code class="docutils literal notranslate"><span class="pre">Sustancias.to_table()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.nist_elem.Sustancias.to_text"><code class="docutils literal notranslate"><span class="pre">Sustancias.to_text()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tofsim.nist_elem.analyze_substance"><code class="docutils literal notranslate"><span class="pre">analyze_substance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tofsim.nist_elem.format_listmass"><code class="docutils literal notranslate"><span class="pre">format_listmass()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tofsim.nist_elem.loadmass"><code class="docutils literal notranslate"><span class="pre">loadmass()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tofsim.nist_elem.make_label"><code class="docutils literal notranslate"><span class="pre">make_label()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tofsim.nist_elem.mass2conf"><code class="docutils literal notranslate"><span class="pre">mass2conf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tofsim.nist_elem.read_nist_data"><code class="docutils literal notranslate"><span class="pre">read_nist_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-tofsim.tof">tof</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tofsim.tof.Peaks"><code class="docutils literal notranslate"><span class="pre">Peaks</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.tof.Peaks.tolist"><code class="docutils literal notranslate"><span class="pre">Peaks.tolist()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tofsim.tof.ToF"><code class="docutils literal notranslate"><span class="pre">ToF</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.tof.ToF.add_substances"><code class="docutils literal notranslate"><span class="pre">ToF.add_substances()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.tof.ToF.calc_signal"><code class="docutils literal notranslate"><span class="pre">ToF.calc_signal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.tof.ToF.data_to_array"><code class="docutils literal notranslate"><span class="pre">ToF.data_to_array()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.tof.ToF.get_statistics_peaks"><code class="docutils literal notranslate"><span class="pre">ToF.get_statistics_peaks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.tof.ToF.get_tof_parameters"><code class="docutils literal notranslate"><span class="pre">ToF.get_tof_parameters()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.tof.ToF.load_conf_file"><code class="docutils literal notranslate"><span class="pre">ToF.load_conf_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.tof.ToF.make_plot"><code class="docutils literal notranslate"><span class="pre">ToF.make_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.tof.ToF.mean_times"><code class="docutils literal notranslate"><span class="pre">ToF.mean_times()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.tof.ToF.remove_substances"><code class="docutils literal notranslate"><span class="pre">ToF.remove_substances()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.tof.ToF.save_conf_file"><code class="docutils literal notranslate"><span class="pre">ToF.save_conf_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.tof.ToF.save_data"><code class="docutils literal notranslate"><span class="pre">ToF.save_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.tof.ToF.set_initial_distribution"><code class="docutils literal notranslate"><span class="pre">ToF.set_initial_distribution()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.tof.ToF.signal"><code class="docutils literal notranslate"><span class="pre">ToF.signal()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.tof.ToF.time_of_extract"><code class="docutils literal notranslate"><span class="pre">ToF.time_of_extract()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.tof.ToF.time_of_flight"><code class="docutils literal notranslate"><span class="pre">ToF.time_of_flight()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tofsim.tof.ToF.time_of_flight_bibliog"><code class="docutils literal notranslate"><span class="pre">ToF.time_of_flight_bibliog()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tofsim.tof.get_one_peak"><code class="docutils literal notranslate"><span class="pre">get_one_peak()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">TOF-simulator</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
-      <li>Package API</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Package API</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
-            
               <a href="https://github.com/fiolj/tof-simulator/blob/master/doc/source/tofsim.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="package-api">
-<h1>Package API<a class="headerlink" href="#package-api" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-tofsim.nist_elem">
-<span id="nist-elem"></span><h2>nist_elem<a class="headerlink" href="#module-tofsim.nist_elem" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="tofsim.nist_elem.Sustancias">
-<em class="property">class </em><code class="sig-prename descclassname">tofsim.nist_elem.</code><code class="sig-name descname">Sustancias</code><span class="sig-paren">(</span><em class="sig-param">elementos=''</em>, <em class="sig-param">threshold=0.0001</em>, <em class="sig-param">isotopes=True</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias" title="Permalink to this definition">¶</a></dt>
+             
+  <section id="package-api">
+<h1>Package API<a class="headerlink" href="#package-api" title="Link to this heading"></a></h1>
+<section id="module-tofsim.nist_elem">
+<span id="nist-elem"></span><h2>nist_elem<a class="headerlink" href="#module-tofsim.nist_elem" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="tofsim.nist_elem.Sustancias">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tofsim.nist_elem.</span></span><span class="sig-name descname"><span class="pre">Sustancias</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">elementos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isotopes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
 <p>Object describing a list of substances.</p>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">elementos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;N2&#39;</span><span class="p">,</span> <span class="s1">&#39;H2O&#39;</span><span class="p">,</span> <span class="s1">&#39;Ar^{3+}&#39;</span><span class="p">,</span> <span class="s1">&#39;Ar^{+}&#39;</span><span class="p">,</span> <span class="s1">&#39;Ar^2+&#39;</span><span class="p">,</span> <span class="s1">&#39;UF6&#39;</span><span class="p">]</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">elementos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;N2&#39;</span><span class="p">,</span> <span class="s1">&#39;H2O&#39;</span><span class="p">,</span> <span class="s1">&#39;Ar^{3+}&#39;</span><span class="p">,</span> <span class="s1">&#39;Ar^{+}&#39;</span><span class="p">,</span> <span class="s1">&#39;Ar^2+&#39;</span><span class="p">,</span> <span class="s1">&#39;UF6&#39;</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="n">Sustancias</span><span class="p">(</span><span class="n">elementos</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">1.e-3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="go">l                     M          P</span>
@@ -194,7 +162,7 @@
 </pre></div>
 </div>
 <p>To get help use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">show_help</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">show_help</span><span class="p">()</span>
 <span class="go">Create an object Sustancias as:</span>
 <span class="go">#</span>
 <span class="go">  Sustancias(&lt;elemento o sustancia&gt;)</span>
@@ -210,12 +178,12 @@
 <span class="go"> q:  str  Charge</span>
 </pre></div>
 </div>
-<dl class="method">
-<dt id="tofsim.nist_elem.Sustancias.add">
-<code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param">sustancias</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.add" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.nist_elem.Sustancias.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sustancias</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.add" title="Link to this definition"></a></dt>
 <dd><p>Returns a dictionary with all the information on the substances added.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>sustancias</strong> (<em>str</em>) – <p>Comma separated list of substances to be added, por instance:</p>
 <blockquote>
 <div><p>m = add(‘H20,O2,N2,UF5,UF6’)</p>
@@ -225,29 +193,29 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.nist_elem.Sustancias.copy">
-<code class="sig-name descname">copy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.copy" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.nist_elem.Sustancias.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.copy" title="Link to this definition"></a></dt>
 <dd><p>Copy the object and returns a new one.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.nist_elem.Sustancias.get_lista">
-<code class="sig-name descname">get_lista</code><span class="sig-paren">(</span><em class="sig-param">cols=None</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.get_lista" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.nist_elem.Sustancias.get_lista">
+<span class="sig-name descname"><span class="pre">get_lista</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.get_lista" title="Link to this definition"></a></dt>
 <dd><p>Return a list with the cols</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>cols</strong> (<em>tuple/list</em><em> or </em><em>None</em>) – A list of string selecting the fields to included, chosen from <cite>“A,L,l,M,P,S,Z”</cite></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.nist_elem.Sustancias.list">
-<code class="sig-name descname">list</code><span class="sig-paren">(</span><em class="sig-param">key=None</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.list" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.nist_elem.Sustancias.list">
+<span class="sig-name descname"><span class="pre">list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.list" title="Link to this definition"></a></dt>
 <dd><p>Return a list of elements, optionally filtered with a criteria given by key</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>key</strong> (<em>None</em><em> or </em><em>function</em>) – <ul class="simple">
 <li><p>if key=None returns all elements</p></li>
 <li><p>otherwise key has to be a function returning <cite>True</cite> or <cite>False</cite>.</p></li>
@@ -256,19 +224,19 @@
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span>  <span class="n">x</span><span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.40</span><span class="p">)</span>  <span class="c1"># returns True if population greater than 40%</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span>  <span class="n">x</span><span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.40</span><span class="p">)</span>  <span class="c1"># returns True if population greater than 40%</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span>  <span class="n">x</span><span class="p">[</span><span class="s1">&#39;M&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">)</span>    <span class="c1"># returns True if Mass smaller than than 50 AMU</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">key</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span>  <span class="n">x</span><span class="p">[</span><span class="s1">&#39;q&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>     <span class="c1"># returns True if charge greater than 2</span>
 </pre></div>
 </div>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.nist_elem.Sustancias.loadconf">
-<code class="sig-name descname">loadconf</code><span class="sig-paren">(</span><em class="sig-param">fname</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.loadconf" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.nist_elem.Sustancias.loadconf">
+<span class="sig-name descname"><span class="pre">loadconf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.loadconf" title="Link to this definition"></a></dt>
 <dd><p>Load substances from file</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>fname</strong> (<em>str</em><em> or </em><em>Path</em><em>(</em><em>) </em><em>object</em>) – File with definition of substances to add</p>
 </dd>
 </dl>
@@ -292,31 +260,33 @@ Z=16
 </div>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.nist_elem.Sustancias.remove">
-<code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param">sustancias</em>, <em class="sig-param">criteria='fragment'</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.remove" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.nist_elem.Sustancias.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sustancias</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">criteria</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fragment'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.remove" title="Link to this definition"></a></dt>
 <dd><p>Remove a fragment</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>sustancias</strong> (<em>str</em><em> or </em><em>list of strings</em>) – substance or fragment to remove</p></li>
+<li><p><strong>sustancias</strong> (<em>str</em><em> or </em><em>list</em><em> of </em><em>strings</em>) – substance or fragment to remove</p></li>
 <li><p><strong>criteria</strong> (<em>str</em>) – either ‘fragment’ (the default value) or ‘substance’:</p></li>
+<li><p><strong>'criteria'</strong> (<em>For the choices of</em>)</p></li>
+<li><p><strong>use</strong> (<em>we</em>)</p></li>
+<li><p><strong>'key'</strong> (<em>-</em>)</p></li>
+<li><p><strong>'fragment'</strong> (<em>-</em>)</p></li>
+<li><p><strong>'substance'</strong> (<em>-</em>)</p></li>
+<li><p><strong>Rewriting</strong> (<em>NOTE  This Routine Needs</em>)</p></li>
+<li><p><strong>----</strong></p></li>
 </ul>
 </dd>
 </dl>
-<p>For the choices of ‘criteria’, we use:</p>
-<ul class="simple">
-<li><p>‘fragment’: e.g:  Ar^{2+}, SF6^++,  Removes exactly the fragment given</p></li>
-<li><p>‘substance’: e.g:  Ar, SF6, Xe, Remove all fragments with independently of the charge</p></li>
-</ul>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.nist_elem.Sustancias.saveconf">
-<code class="sig-name descname">saveconf</code><span class="sig-paren">(</span><em class="sig-param">fname=None</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.saveconf" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.nist_elem.Sustancias.saveconf">
+<span class="sig-name descname"><span class="pre">saveconf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.saveconf" title="Link to this definition"></a></dt>
 <dd><p>Save the substances to a file in a format that may be later read</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> (<em>type</em>) – description</p></li>
 <li><p><strong>fname</strong> (<em>None</em><em> or </em><em>str</em><em> or </em><em>pathlib.Path</em><em>(</em><em>)</em>) – Name of the file. If <cite>None</cite> prints to screen</p></li>
@@ -325,19 +295,19 @@ Z=16
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.nist_elem.Sustancias.show_help">
-<code class="sig-name descname">show_help</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.show_help" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.nist_elem.Sustancias.show_help">
+<span class="sig-name descname"><span class="pre">show_help</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.show_help" title="Link to this definition"></a></dt>
 <dd><p>Show help on use of Object Sustancias</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.nist_elem.Sustancias.sort">
-<code class="sig-name descname">sort</code><span class="sig-paren">(</span><em class="sig-param">order=None</em>, <em class="sig-param">reverse=False</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.sort" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.nist_elem.Sustancias.sort">
+<span class="sig-name descname"><span class="pre">sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reverse</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.sort" title="Link to this definition"></a></dt>
 <dd><p>Sort the substances according to the specified order.
 The sort is stable.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> (<em>type</em>) – description</p></li>
 <li><p><strong>order</strong> (<em>str</em>) – desired order. One of ‘ALMPSZq’</p></li>
@@ -347,12 +317,12 @@ The sort is stable.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.nist_elem.Sustancias.to_latex">
-<code class="sig-name descname">to_latex</code><span class="sig-paren">(</span><em class="sig-param">cols=None</em>, <em class="sig-param">headers=None</em>, <em class="sig-param">standalone=False</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.to_latex" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.nist_elem.Sustancias.to_latex">
+<span class="sig-name descname"><span class="pre">to_latex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standalone</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.to_latex" title="Link to this definition"></a></dt>
 <dd><p>Convert to LaTeX table using tabulate package</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>cols</strong> (<em>list</em>) – Substance characteristics to include.</p></li>
 <li><p><strong>headers</strong> (<em>str</em>) – String to write before data.</p></li>
@@ -362,13 +332,13 @@ The sort is stable.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.nist_elem.Sustancias.to_pdf">
-<code class="sig-name descname">to_pdf</code><span class="sig-paren">(</span><em class="sig-param">cols=None</em>, <em class="sig-param">headers=None</em>, <em class="sig-param">latexcommand='pdflatex'</em>, <em class="sig-param">output='tmp.pdf'</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.to_pdf" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.nist_elem.Sustancias.to_pdf">
+<span class="sig-name descname"><span class="pre">to_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latexcommand</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pdflatex'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tmp.pdf'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.to_pdf" title="Link to this definition"></a></dt>
 <dd><p>Convert to pdf format using latex.</p>
 <p>Export to a latex file and compiles it.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> (<em>type</em>) – description</p></li>
 <li><p><strong>cols</strong> (<em>str</em>) – Substance characteristics to include</p></li>
@@ -380,9 +350,9 @@ The sort is stable.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.nist_elem.Sustancias.to_table">
-<code class="sig-name descname">to_table</code><span class="sig-paren">(</span><em class="sig-param">cols=None</em>, <em class="sig-param">headers=()</em>, <em class="sig-param">tablefmt='simple'</em>, <em class="sig-param">floatfmt='g'</em>, <em class="sig-param">numalign='decimal'</em>, <em class="sig-param">stralign='left'</em>, <em class="sig-param">missingval=''</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.to_table" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.nist_elem.Sustancias.to_table">
+<span class="sig-name descname"><span class="pre">to_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tablefmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'simple'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">floatfmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'g'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">numalign</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'decimal'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stralign</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'left'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">missingval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.to_table" title="Link to this definition"></a></dt>
 <dd><p>Format the list of sustances in Table format.</p>
 <p>This is a wrapper around the tabulate function
 from the tabulate package: <a class="reference external" href="https://pypi.python.org/pypi/tabulate">https://pypi.python.org/pypi/tabulate</a>.
@@ -392,7 +362,7 @@ latex, latex_raw, latex_booktabs, mediawiki, orgtbl, pipe,
 html</p>
 <p>Options <cite>tablefmt</cite>, <cite>floatfmt</cite>, <cite>numalign</cite>, <cite>stralign</cite>, <cite>missingval</cite> are passed to package <cite>tabulate</cite>, if available.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>cols</strong> (<em>list</em>) – A list of strings with the characteristics to include. Must be in ALMPSZ</p></li>
 <li><p><strong>headers</strong> (<em>str</em>) – String to include before data</p></li>
@@ -406,24 +376,24 @@ html</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.nist_elem.Sustancias.to_text">
-<code class="sig-name descname">to_text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.to_text" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.nist_elem.Sustancias.to_text">
+<span class="sig-name descname"><span class="pre">to_text</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.Sustancias.to_text" title="Link to this definition"></a></dt>
 <dd><p>Convenience function to format as a simple table</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="function">
-<dt id="tofsim.nist_elem.analyze_substance">
-<code class="sig-prename descclassname">tofsim.nist_elem.</code><code class="sig-name descname">analyze_substance</code><span class="sig-paren">(</span><em class="sig-param">subst</em>, <em class="sig-param">threshold=0.0001</em>, <em class="sig-param">fragments=False</em>, <em class="sig-param">isotopes=True</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.analyze_substance" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="tofsim.nist_elem.analyze_substance">
+<span class="sig-prename descclassname"><span class="pre">tofsim.nist_elem.</span></span><span class="sig-name descname"><span class="pre">analyze_substance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">subst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fragments</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isotopes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.analyze_substance" title="Link to this definition"></a></dt>
 <dd><p>Devuelve todas las combinaciones con posibles isotopos (y su poblacion)
 de la sustancia con la formula dada.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>subst</strong> (<em>str</em>) – substance to include (H2O, CO, SF6, N2, …)</p></li>
-<li><p><strong>threshold</strong> (<em>float</em>) – Minimum abundance that has to have an isotope to be included</p></li>
+<li><p><strong>threshold</strong> (<em>float</em>) – Minimum abundance that has to have an isotope in order to be included</p></li>
 <li><p><strong>fragments</strong> (<em>bool</em>) – If True includes all fragments. For instance from ‘CO’ -&gt; ‘CO’, ‘C’, ‘O’</p></li>
 <li><p><strong>isotopes</strong> (<em>bool</em>) – If True includes all isotope combinations</p></li>
 </ul>
@@ -437,13 +407,13 @@ de la sustancia con la formula dada.</p>
 </div>
 </dd></dl>
 
-<dl class="function">
-<dt id="tofsim.nist_elem.format_listmass">
-<code class="sig-prename descclassname">tofsim.nist_elem.</code><code class="sig-name descname">format_listmass</code><span class="sig-paren">(</span><em class="sig-param">rows</em>, <em class="sig-param">end='\n'</em>, <em class="sig-param">sep=' '</em>, <em class="sig-param">header=''</em>, <em class="sig-param">footer=''</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.format_listmass" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="tofsim.nist_elem.format_listmass">
+<span class="sig-prename descclassname"><span class="pre">tofsim.nist_elem.</span></span><span class="sig-name descname"><span class="pre">format_listmass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rows</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'\n'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'</span> <span class="pre">'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">footer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.format_listmass" title="Link to this definition"></a></dt>
 <dd><p>Simple formatting of a list of substances. It is intended to use with the
 output of <cite>get_lista()</cite></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>rows</strong> (<em>list</em>) – List where each row is a list with data on a single element</p></li>
 <li><p><strong>end</strong> (<em>str</em>) – End of line string</p></li>
@@ -455,29 +425,29 @@ output of <cite>get_lista()</cite></p>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="tofsim.nist_elem.loadmass">
-<code class="sig-prename descclassname">tofsim.nist_elem.</code><code class="sig-name descname">loadmass</code><span class="sig-paren">(</span><em class="sig-param">fname</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.loadmass" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="tofsim.nist_elem.loadmass">
+<span class="sig-prename descclassname"><span class="pre">tofsim.nist_elem.</span></span><span class="sig-name descname"><span class="pre">loadmass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.loadmass" title="Link to this definition"></a></dt>
 <dd><p>Load masses from configuration file</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>fname</strong> (<em>str</em><em> or </em><em>Path</em><em>(</em><em>)</em>) – File to read masses from</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>a dictionary with the elements read</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="tofsim.nist_elem.make_label">
-<code class="sig-prename descclassname">tofsim.nist_elem.</code><code class="sig-name descname">make_label</code><span class="sig-paren">(</span><em class="sig-param">ss</em>, <em class="sig-param">fmt='key'</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.make_label" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="tofsim.nist_elem.make_label">
+<span class="sig-prename descclassname"><span class="pre">tofsim.nist_elem.</span></span><span class="sig-name descname"><span class="pre">make_label</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'key'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.make_label" title="Link to this definition"></a></dt>
 <dd><p>Construct the label for a given substance</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ss</strong> (<em>str</em>) – Array of tuples [(A1,S1), (A2,S2), …] for all atoms in the substance</p></li>
 <li><p><strong>fmt</strong> (<em>str</em>) – <p>Indicates the format of labels:</p>
@@ -494,41 +464,41 @@ output of <cite>get_lista()</cite></p>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="tofsim.nist_elem.mass2conf">
-<code class="sig-prename descclassname">tofsim.nist_elem.</code><code class="sig-name descname">mass2conf</code><span class="sig-paren">(</span><em class="sig-param">masses</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.mass2conf" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="tofsim.nist_elem.mass2conf">
+<span class="sig-prename descclassname"><span class="pre">tofsim.nist_elem.</span></span><span class="sig-name descname"><span class="pre">mass2conf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">masses</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.mass2conf" title="Link to this definition"></a></dt>
 <dd><p>Format masses for a configuration file</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>masses</strong> (<em>dict</em>) – Information on substance(s)</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>string with the format of a configuration file</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="tofsim.nist_elem.read_nist_data">
-<code class="sig-prename descclassname">tofsim.nist_elem.</code><code class="sig-name descname">read_nist_data</code><span class="sig-paren">(</span><em class="sig-param">threshold=0</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.read_nist_data" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="tofsim.nist_elem.read_nist_data">
+<span class="sig-prename descclassname"><span class="pre">tofsim.nist_elem.</span></span><span class="sig-name descname"><span class="pre">read_nist_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.nist_elem.read_nist_data" title="Link to this definition"></a></dt>
 <dd><p>Read data from file <em>datafile</em> and fills the dictionary
 <cite>__NIST_ELEMENTS__</cite> with all the data</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>threshold</strong> (<em>float</em>) – Add all elements whose abundance is higher than threshold</p>
 </dd>
 </dl>
 </dd></dl>
 
-</div>
-<div class="section" id="module-tofsim.tof">
-<span id="tof"></span><h2>tof<a class="headerlink" href="#module-tofsim.tof" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="tofsim.tof.Peaks">
-<em class="property">class </em><code class="sig-prename descclassname">tofsim.tof.</code><code class="sig-name descname">Peaks</code><a class="headerlink" href="#tofsim.tof.Peaks" title="Permalink to this definition">¶</a></dt>
+</section>
+<section id="module-tofsim.tof">
+<span id="tof"></span><h2>tof<a class="headerlink" href="#module-tofsim.tof" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="tofsim.tof.Peaks">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tofsim.tof.</span></span><span class="sig-name descname"><span class="pre">Peaks</span></span><a class="headerlink" href="#tofsim.tof.Peaks" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
 <p>Simple object describing spectra peaks for the TOF.</p>
 <p>It is essentially a dictionary, with a few added convenience methods</p>
@@ -558,18 +528,18 @@ output of <cite>get_lista()</cite></p>
 </li>
 </ul>
 </div></blockquote>
-<dl class="method">
-<dt id="tofsim.tof.Peaks.tolist">
-<code class="sig-name descname">tolist</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.Peaks.tolist" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.tof.Peaks.tolist">
+<span class="sig-name descname"><span class="pre">tolist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.Peaks.tolist" title="Link to this definition"></a></dt>
 <dd><p>Returns a list with the data describing the peaks. The form is:
 [‘Substance’, ‘index’, ‘position’, ‘height’, ‘width’]</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="tofsim.tof.ToF">
-<em class="property">class </em><code class="sig-prename descclassname">tofsim.tof.</code><code class="sig-name descname">ToF</code><span class="sig-paren">(</span><em class="sig-param">substances=None</em>, <em class="sig-param">**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="tofsim.tof.ToF">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tofsim.tof.</span></span><span class="sig-name descname"><span class="pre">ToF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">substances</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>The ToF object defines and handles all aspects of a Time-of-Flight spectrometer</p>
 <p>The following parameters related to the construction and operation are included:
@@ -585,7 +555,7 @@ time duration and size of the ionizing beam are also included.</p>
   <span class="s1">&#39;ds&#39;</span><span class="p">:</span> <span class="mf">0.05</span><span class="p">,</span>                  <span class="c1"># Radio del spot del laser in cm</span>
   <span class="s1">&#39;dt&#39;</span><span class="p">:</span> <span class="mf">0.008</span><span class="p">,</span>                 <span class="c1"># Laser-pulse duration</span>
   <span class="s1">&#39;t0&#39;</span><span class="p">:</span> <span class="mf">0.</span><span class="p">,</span>                    <span class="c1"># Offset in time of TOF (experimental)</span>
-  <span class="s1">&#39;r0&#39;</span><span class="p">:</span> <span class="mf">1.e3</span><span class="p">,</span>                  <span class="c1"># Aperture radius after extraction</span>
+  <span class="s1">&#39;r0&#39;</span><span class="p">:</span> <span class="mf">1.e3</span><span class="p">,</span>                  <span class="c1"># Aperture radius after extraction (in mm?)</span>
   <span class="p">}</span>
 
 <span class="c1"># We can create the object with the parameters desired</span>
@@ -604,12 +574,12 @@ time duration and size of the ionizing beam are also included.</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 </div>
-<dl class="method">
-<dt id="tofsim.tof.ToF.add_substances">
-<code class="sig-name descname">add_substances</code><span class="sig-paren">(</span><em class="sig-param">substances</em>, <em class="sig-param">threshold=0.001</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.add_substances" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.tof.ToF.add_substances">
+<span class="sig-name descname"><span class="pre">add_substances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">substances</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.add_substances" title="Link to this definition"></a></dt>
 <dd><p>Add substances to be simulated.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>substances</strong> (<em>str</em>) – Comma-separated string, or list of strings, each substance may have the form            SF5^{+}, SF5^{++}, SF5^+, S^2+</p></li>
 <li><p><strong>threshold</strong> (<em>float</em>) – Minimum abundance of a given isotope to be included (default 1.e-3).</p></li>
@@ -618,26 +588,26 @@ time duration and size of the ionizing beam are also included.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.tof.ToF.calc_signal">
-<code class="sig-name descname">calc_signal</code><span class="sig-paren">(</span><em class="sig-param">particles</em>, <em class="sig-param">Time</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.calc_signal" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.tof.ToF.calc_signal">
+<span class="sig-name descname"><span class="pre">calc_signal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">particles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.calc_signal" title="Link to this definition"></a></dt>
 <dd><p>Calculo de los histogramas para generar la señal de un grupo de partículas</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.tof.ToF.data_to_array">
-<code class="sig-name descname">data_to_array</code><span class="sig-paren">(</span><em class="sig-param">unpack=False</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.data_to_array" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.tof.ToF.data_to_array">
+<span class="sig-name descname"><span class="pre">data_to_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">unpack</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.data_to_array" title="Link to this definition"></a></dt>
 <dd><p>Conversion from signal to “numpy arrays”, sorted by time</p>
 <p>Keyword Arguments:
 unpack – (default False)</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.tof.ToF.get_statistics_peaks">
-<code class="sig-name descname">get_statistics_peaks</code><span class="sig-paren">(</span><em class="sig-param">substances='all'</em>, <em class="sig-param">fwidth=0.36787944117144233</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.get_statistics_peaks" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.tof.ToF.get_statistics_peaks">
+<span class="sig-name descname"><span class="pre">get_statistics_peaks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">substances</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.36787944117144233</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.get_statistics_peaks" title="Link to this definition"></a></dt>
 <dd><p>Find peaks</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>substances</strong> (<em>'all'</em><em> or </em><em>list</em>) – <ul>
 <li><p>if ‘all’ find the peak for every fragment in the TOF</p></li>
@@ -651,39 +621,38 @@ For instance, fwidth = 0.5 corresponds to FWHM</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.tof.ToF.get_tof_parameters">
-<code class="sig-name descname">get_tof_parameters</code><span class="sig-paren">(</span><em class="sig-param">explain=False</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.get_tof_parameters" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.tof.ToF.get_tof_parameters">
+<span class="sig-name descname"><span class="pre">get_tof_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">explain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.get_tof_parameters" title="Link to this definition"></a></dt>
 <dd><p>Returns the parameters of TOF in a dict.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> (<em>type</em>) – description</p></li>
-<li><p><strong>explain</strong> (<em>bool</em>) – If <cite>True</cite> add an ascii graphic with the diagram of the TOF</p></li>
-</ul>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>explain</strong> (<em>bool</em>) – If <cite>True</cite> add an ascii graphic with the diagram of the TOF</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.tof.ToF.load_conf_file">
-<code class="sig-name descname">load_conf_file</code><span class="sig-paren">(</span><em class="sig-param">fname</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.load_conf_file" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.tof.ToF.load_conf_file">
+<span class="sig-name descname"><span class="pre">load_conf_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.load_conf_file" title="Link to this definition"></a></dt>
 <dd><p>Load a configuration file, update tof parameters, and also return masses if present.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.tof.ToF.make_plot">
-<code class="sig-name descname">make_plot</code><span class="sig-paren">(</span><em class="sig-param">especies=None</em>, <em class="sig-param">fname=None</em>, <em class="sig-param">**kvars</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.make_plot" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.tof.ToF.make_plot">
+<span class="sig-name descname"><span class="pre">make_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">especies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kvars</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.make_plot" title="Link to this definition"></a></dt>
 <dd><p>Plot the signals in a “standard” form.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>especies</strong> (<em>dict</em>) – masses to plot. If no present uses simulated fragments</p></li>
 <li><p><strong>fname</strong> (<em>string</em><em> or </em><em>None</em><em> (</em><em>default None</em><em>)</em>) – if not None -&gt; Save the figure to “fname”</p></li>
 <li><p><strong>kvars</strong> (<em>Optional</em>) – <ul>
 <li><p>negative = <cite>True/False</cite>             : if <cite>True</cite> -&gt; Negative signal</p></li>
+<li><p>show_grid = <cite>True/False</cite>             : if <cite>True</cite> -&gt; Negative signal</p></li>
 <li><p>graph_all=`True/False` (or show_all): if <cite>True</cite> -&gt; Plot individual species</p></li>
 <li><p>show_legend=`True/False`            : if <cite>True</cite> -&gt; Show the legend</p></li>
+<li><p>show_title=`True/False`            : if <cite>True</cite> -&gt; Show info in the title</p></li>
 </ul>
 </p></li>
 </ul>
@@ -691,9 +660,9 @@ For instance, fwidth = 0.5 corresponds to FWHM</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.tof.ToF.mean_times">
-<code class="sig-name descname">mean_times</code><span class="sig-paren">(</span><em class="sig-param">x0=0.0</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.mean_times" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.tof.ToF.mean_times">
+<span class="sig-name descname"><span class="pre">mean_times</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.mean_times" title="Link to this definition"></a></dt>
 <dd><p>Evaluate the ‘main’ time of each species, given as if generated in ideal conditions:</p>
 <ul class="simple">
 <li><p>At time t=0</p></li>
@@ -702,44 +671,44 @@ For instance, fwidth = 0.5 corresponds to FWHM</p></li>
 </ul>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.tof.ToF.remove_substances">
-<code class="sig-name descname">remove_substances</code><span class="sig-paren">(</span><em class="sig-param">sustancias</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.remove_substances" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.tof.ToF.remove_substances">
+<span class="sig-name descname"><span class="pre">remove_substances</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sustancias</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.remove_substances" title="Link to this definition"></a></dt>
 <dd><p>Remove substances from the simulation</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> (<em>type</em>) – description</p></li>
-<li><p><strong>sustancias</strong> (<em>str</em><em> or </em><em>list of strings</em>) – substances or fragments to remove</p></li>
+<li><p><strong>sustancias</strong> (<em>str</em><em> or </em><em>list</em><em> of </em><em>strings</em>) – substances or fragments to remove</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.tof.ToF.save_conf_file">
-<code class="sig-name descname">save_conf_file</code><span class="sig-paren">(</span><em class="sig-param">fname</em>, <em class="sig-param">masas={}</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.save_conf_file" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.tof.ToF.save_conf_file">
+<span class="sig-name descname"><span class="pre">save_conf_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">masas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.save_conf_file" title="Link to this definition"></a></dt>
 <dd><p>Save configuration data for tof and masses to a file</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.tof.ToF.save_data">
-<code class="sig-name descname">save_data</code><span class="sig-paren">(</span><em class="sig-param">fname</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.save_data" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.tof.ToF.save_data">
+<span class="sig-name descname"><span class="pre">save_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.save_data" title="Link to this definition"></a></dt>
 <dd><p>Save the signal to a data file</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.tof.ToF.set_initial_distribution">
-<code class="sig-name descname">set_initial_distribution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.set_initial_distribution" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.tof.ToF.set_initial_distribution">
+<span class="sig-name descname"><span class="pre">set_initial_distribution</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.set_initial_distribution" title="Link to this definition"></a></dt>
 <dd><p>Initial velocity and position distributions</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.tof.ToF.signal">
-<code class="sig-name descname">signal</code><span class="sig-paren">(</span><em class="sig-param">particles=None</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.signal" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.tof.ToF.signal">
+<span class="sig-name descname"><span class="pre">signal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">particles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.signal" title="Link to this definition"></a></dt>
 <dd><p>Evaluate the signal that would produce the particles in the ToF</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>particles</strong> (<em>dict each item is a dictionary that should have</em>) – <ul>
 <li><p>key: is the label of the mass</p></li>
@@ -748,108 +717,90 @@ For instance, fwidth = 0.5 corresponds to FWHM</p></li>
 <li><p>’L’: an (optional, possibly formatted) label, otherwise the key is used</p></li>
 </ul>
 </p></li>
-<li><p><strong>particles is None =&gt; Usa los fragments</strong> (<em>If</em>) – </p></li>
+<li><p><strong>fragments</strong> (<em>If particles is None =&gt; Usa los</em>)</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>times</strong> – Sets the object variable self.times and also returns its value</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>numpy array</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.tof.ToF.time_of_extract">
-<code class="sig-name descname">time_of_extract</code><span class="sig-paren">(</span><em class="sig-param">x_0</em>, <em class="sig-param">v_0</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.time_of_extract" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.tof.ToF.time_of_extract">
+<span class="sig-name descname"><span class="pre">time_of_extract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.time_of_extract" title="Link to this definition"></a></dt>
 <dd><p>Evaluates the time taken to extract a particle of mass M=1 and charge q=1 with
 initial velocity v_0 and position x_0 from the extraction plates.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.tof.ToF.time_of_flight">
-<code class="sig-name descname">time_of_flight</code><span class="sig-paren">(</span><em class="sig-param">x_0</em>, <em class="sig-param">v_0</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.time_of_flight" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.tof.ToF.time_of_flight">
+<span class="sig-name descname"><span class="pre">time_of_flight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.time_of_flight" title="Link to this definition"></a></dt>
 <dd><p>Evaluates the time-of-flight of a particle of mass M=1 and charge q=1 with
 initial velocity v_0 and position x_0.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="tofsim.tof.ToF.time_of_flight_bibliog">
-<code class="sig-name descname">time_of_flight_bibliog</code><span class="sig-paren">(</span><em class="sig-param">x_0</em>, <em class="sig-param">v_0</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.time_of_flight_bibliog" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="tofsim.tof.ToF.time_of_flight_bibliog">
+<span class="sig-name descname"><span class="pre">time_of_flight_bibliog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.ToF.time_of_flight_bibliog" title="Link to this definition"></a></dt>
 <dd><p>Alternative evaluatation of time-of-flight of a particle of mass M=1
 and charge q=1 with initial velocity v_0 and position x_0 (from bibliography).</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="function">
-<dt id="tofsim.tof.get_one_peak">
-<code class="sig-prename descclassname">tofsim.tof.</code><code class="sig-name descname">get_one_peak</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">y</em>, <em class="sig-param">fwidth=0.36787944117144233</em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.get_one_peak" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns features of a single peak.
-Returns a list with:
-- Position 0: indexes of position of:</p>
-<blockquote>
-<div><ul class="simple">
+<dl class="py function">
+<dt class="sig sig-object py" id="tofsim.tof.get_one_peak">
+<span class="sig-prename descclassname"><span class="pre">tofsim.tof.</span></span><span class="sig-name descname"><span class="pre">get_one_peak</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fwidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.36787944117144233</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tofsim.tof.get_one_peak" title="Link to this definition"></a></dt>
+<dd><p>Returns features of a single peak.</p>
+<p>Returns a list with:</p>
+<ul class="simple">
+<li><p>Position 0: indexes of position of:</p>
+<ul>
 <li><p>lower half height</p></li>
 <li><p>center</p></li>
 <li><p>upper half height</p></li>
 </ul>
-</div></blockquote>
-<ul class="simple">
+</li>
 <li><p>Position 1: values of x</p></li>
 <li><p>Position 2: values of y</p></li>
 </ul>
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-      
-        <a href="teoria.html" class="btn btn-neutral float-left" title="Implementation of time-of-flight calculations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="teoria.html" class="btn btn-neutral float-left" title="Implementation of time-of-flight calculations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2020, Juan Fiol
-
-    </p>
+    <p>&#169; Copyright 2020-, Juan Fiol.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

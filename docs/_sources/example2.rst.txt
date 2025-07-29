@@ -4,6 +4,7 @@ Getting Information on the peaks
 We want to get the peaks from the spectra. We start importing and
 creating the TOF object with all isotopes from Ar and Kr
 
+
 .. code:: 
 
     from tofsim import ToF
