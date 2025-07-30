@@ -15,7 +15,7 @@ The package may be used in three different forms:
 - Python module in a script. Something like:
 
 
-  ```python
+.. code:: python
 
   from tofsim import ToF
   # Create the TOF with all isotopes from Ar and Kr
@@ -31,9 +31,7 @@ The package may be used in three different forms:
   p = T.get_statistics_peaks()    # Get the peaks
   
   print(p)                        # Print the peaks
-
-  ```
-
+  
 
 - Gtk GUI interface `tof_gtk`
 
