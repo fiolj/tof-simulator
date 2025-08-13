@@ -1,1 +1,2 @@
-numpy
+sphinx==7.2.6
+sphinx-rtd-theme==2.0.0
