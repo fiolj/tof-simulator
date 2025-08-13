@@ -65,17 +65,18 @@ pygments_style = 'emacs'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-# html_theme = 'alabaster'
-html_theme = 'sphinx_rtd_theme'
+# To auto create readthedocs docs
+# # html_theme = 'alabaster'
+# html_theme = 'sphinx_rtd_theme'
 
-# html_theme_options = {'sticky_navigation': True,
-#                       }
+# # html_theme_options = {'sticky_navigation': True,
+# #                       }
 
-# html_theme = 'sphinxdoc'
-html_css_files = [
-    'rtd_overrides.css',
-    # 'pygm_overrides.css'
-]
+# # html_theme = 'sphinxdoc'
+# html_css_files = [
+#     'rtd_overrides.css',
+#     # 'pygm_overrides.css'
+# ]
 
 
 # Add any paths that contain custom static files (such as style sheets) here,
