@@ -39,7 +39,6 @@ extensions = [
     # 'sphinx.ext.viewcode',
 ]
 
-
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -55,7 +54,8 @@ gettext_compact = True
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = []
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+# exclude_patterns = []
 
 # pygments_style = 'sphinx'
 pygments_style = 'emacs'
@@ -65,19 +65,12 @@ pygments_style = 'emacs'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-# To auto create readthedocs docs
-# # html_theme = 'alabaster'
-# html_theme = 'sphinx_rtd_theme'
-
-# # html_theme_options = {'sticky_navigation': True,
-# #                       }
-
-# # html_theme = 'sphinxdoc'
-# html_css_files = [
-#     'rtd_overrides.css',
-#     # 'pygm_overrides.css'
-# ]
-
+html_theme = 'sphinx_rtd_theme'
+html_css_files = [
+    'rtd_overrides.css',
+    'pygm_overrides.css'
+]
+html_static_path = ['_static']
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
